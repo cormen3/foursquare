@@ -1,0 +1,81 @@
+/**
+ * Declare all dependencies for the presentation project.
+ */
+androidExtensions {
+    experimental = true
+    defaultCacheImplementation = 'SPARSE_ARRAY'
+}
+
+def apiProperties = new Properties()
+apiProperties.load(new FileInputStream(rootProject.file("api.properties")))
+
+android {
+
+    defaultConfig {
+        buildConfigField "String", "BASE_URL", "\"${apiProperties['BASE_URL']}\""
+    }
+
+    testOptions {
+        unitTests {
+            includeAndroidResources = true
+        }
+    }
+
+    sourceSets {
+        test {
+            java {
+                srcDir "../common_test/src/test/java"
+            }
+            resources {
+                srcDir "../common_test/src/test/resources"
+            }
+        }
+    }
+}
+
+dependencies {
+    def libraries = rootProject.ext.libraries
+
+    api project(':domain')
+    api project(':common')
+    testImplementation project(':common_test')
+
+    kapt libraries.dagger.processor
+    kapt libraries.dagger.compiler
+    implementation libraries.dagger.android
+    implementation libraries.dagger.support
+    kapt libraries.android.glideCompiler
+    implementation libraries.kotlin.kotlin
+    implementation libraries.android.glide
+    implementation libraries.android.liveData
+    implementation libraries.android.viewmodel
+    implementation libraries.android.supportDesign
+    implementation libraries.android.constraintLayout
+    implementation libraries.android.androidxAppCompat
+    implementation libraries.android.lifecycleExtensions
+    implementation libraries.android.lifecycleCommonJava8
+    implementation libraries.android.archComponentsStreams
+    implementation libraries.android.androidxRecyclerView
+    implementation libraries.android.swipeRefresh
+    implementation libraries.rx.java
+    implementation libraries.rx.android
+    implementation libraries.gson
+    implementation libraries.okHttp.okHttp
+    implementation libraries.android.core_ktx
+    implementation libraries.android.support
+    implementation libraries.android.activityKtx
+    implementation libraries.navigationFragment
+    implementation libraries.navigationUi
+    testImplementation libraries.rx.java
+    implementation libraries.android.location
+
+    testImplementation libraries.android.liveData
+    testImplementation libraries.android.viewmodel
+    testImplementation libraries.android.lifecycleExtensions
+    testImplementation libraries.gson
+    testImplementation libraries.test.android.archCore
+    testImplementation libraries.test.junit
+    testImplementation libraries.test.mockito.core
+    testImplementation libraries.test.mockito.kotlin
+    testImplementation libraries.test.mockito.inline
+}

@@ -1,0 +1,60 @@
+/**
+ * Declare all dependencies for the data project.
+ */
+def apiProperties = new Properties()
+apiProperties.load(new FileInputStream(rootProject.file('api.properties')))
+
+android {
+    defaultConfig {
+        buildConfigField "String", "API_URL", "\"${apiProperties['API_URL']}\""
+        buildConfigField "String", "API_VERSION", "\"${apiProperties['API_VERSION']}\""
+    }
+    sourceSets {
+        test {
+            java {
+                srcDir "../common_test/src/test/java"
+            }
+            resources {
+                srcDir "../common_test/src/test/resources"
+            }
+        }
+    }
+}
+
+
+dependencies {
+    def libraries = rootProject.ext.libraries
+
+    api project(':domain')
+    api project(':common')
+
+    kapt libraries.dagger.processor
+    kapt libraries.dagger.compiler
+    kapt libraries.room.compiler
+
+    implementation libraries.kotlin.kotlin
+    implementation libraries.dagger.android
+    implementation libraries.room.runtime
+    implementation libraries.room.rxJava
+    implementation libraries.retrofit.retrofit
+    implementation libraries.retrofit.converterGson
+    implementation libraries.retrofit.rxjavaAdapter
+    implementation libraries.okHttp.logging
+    implementation libraries.rx.java
+    implementation libraries.rx.android
+    implementation libraries.android.core_ktx
+    implementation libraries.remoteConfig
+    implementation libraries.okHttp.stetho
+
+    testImplementation project(':common_test')
+    testImplementation libraries.rx.java
+    testImplementation libraries.android.liveData
+    testImplementation libraries.android.viewmodel
+    testImplementation libraries.android.lifecycleExtensions
+    testImplementation libraries.gson
+    testImplementation libraries.test.android.archCore
+    testImplementation libraries.test.junit
+    testImplementation libraries.test.mockito.core
+    testImplementation libraries.test.mockito.kotlin
+    testImplementation libraries.test.mockito.inline
+}

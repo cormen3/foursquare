@@ -1,0 +1,37 @@
+/**
+ * Declare all dependencies for the common project.
+ */
+def apiProperties = new Properties()
+apiProperties.load(new FileInputStream(rootProject.file('api.properties')))
+
+android {
+    defaultConfig {
+        buildConfigField "String", "API_URL", "\"${apiProperties['API_URL']}\""
+    }
+}
+
+dependencies {
+    def libraries = rootProject.ext.libraries
+
+    api project(':data')
+    api project(':domain')
+    api project(':presentation')
+
+    implementation libraries.kotlin.kotlin
+    implementation libraries.dagger.android
+    implementation libraries.rx.java
+    implementation libraries.retrofit.retrofit
+    implementation libraries.gson
+
+    testImplementation libraries.rx.java
+    testImplementation libraries.android.liveData
+    testImplementation libraries.android.viewmodel
+    testImplementation libraries.android.lifecycleExtensions
+    testImplementation libraries.gson
+    testImplementation libraries.test.android.archCore
+    testImplementation libraries.test.junit
+    testImplementation libraries.test.mockito.core
+    testImplementation libraries.test.mockito.kotlin
+    testImplementation libraries.test.mockito.inline
+    testImplementation libraries.retrofit.retrofit
+}
