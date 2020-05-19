@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Test</string>
+    <string name="no_net_error">no net error</string>
+    <string name="cancel">cancel</string>
+    <string name="show_app_permissions_setting">app_permissions_setting</string>
+    <string name="inadequate_location_settings">inadequate_location_settings</string>
+    <string name="needs_location_permission_for_auto_detect">needs_location_permission_for_auto_detect</string>
+    <string name="show_permissions">show_permissions</string>
+    <string name="need_app_location_permissions_setting">need_app_location_permissions_setting</string>
+    <string name="release_date">Release Date: </string>
+    <string name="retry">retry</string>
+</resources>
