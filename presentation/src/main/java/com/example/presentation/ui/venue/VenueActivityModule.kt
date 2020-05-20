@@ -17,5 +17,5 @@ abstract class VenueActivityModule {
     abstract fun appCompatActivity(venueActivity: VenueActivity): AppCompatActivity
 
     @ContributesAndroidInjector(modules = [VenuesFragmentModule::class])
-    abstract fun movieFragmentInjector(): VenuesFragment
+    abstract fun venueFragmentInjector(): VenuesFragment
 }
