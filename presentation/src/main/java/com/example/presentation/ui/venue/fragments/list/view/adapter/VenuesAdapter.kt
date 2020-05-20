@@ -3,6 +3,7 @@ package com.example.presentation.ui.venue.fragments.list.view.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.example.domain.entity.DomainObject
+import com.example.domain.entity.venue.VenueObject
 import com.example.presentation.base.adapter.*
 
 class VenuesAdapter(
@@ -13,6 +14,7 @@ class VenuesAdapter(
         val view = LayoutInflater.from(parent.context).inflate(viewType, parent, false)
 
         val holder = when (viewType) {
+            ViewTypeHolder.VENUE_VIEW -> VenuesViewHolder(view)
             ViewTypeHolder.LOAD_MORE_VIEW -> LoadMoreViewHolder(view)
             else -> EmptyViewHolder(view)
         }
@@ -25,6 +27,7 @@ class VenuesAdapter(
         super.onBindViewHolder(holder, position)
 
         when (holder.getType()) {
+            ViewTypeHolder.VENUE_VIEW -> (holder as VenuesViewHolder).bind(mItems[position] as? VenueObject)
             ViewTypeHolder.LOAD_MORE_VIEW -> (holder as LoadMoreViewHolder).bind(Unit)
         }
     }
