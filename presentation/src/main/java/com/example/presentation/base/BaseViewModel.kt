@@ -1,15 +1,22 @@
 package com.example.presentation.base
 
 import android.os.Bundle
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.common.error.ErrorHandler
+import com.example.common.error.ErrorMessage
 import io.reactivex.*
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
 
+
 abstract class BaseViewModel : ViewModel() {
+
+    private var isConnected = true
 
     private val disposable = CompositeDisposable()
     private val taggedDisposables = mutableMapOf<String, Disposable>()
+    val messageObservable: MutableLiveData<MessageData> = MutableLiveData()
 
     protected fun Disposable.track(tag: String? = null): Disposable {
         disposable.add(this)
@@ -37,7 +44,16 @@ abstract class BaseViewModel : ViewModel() {
         disposable.clear()
     }
 
-    private fun handleError(error: Throwable) {}
+    private fun handleError(error: Throwable) {
+
+        var errorMessage = ErrorHandler.getError(error)
+
+        if (!isConnected) {
+            errorMessage = ErrorMessage.ERROR_NO_NET
+        }
+
+        messageObservable.value = MessageData(message = errorMessage)
+    }
 
     protected fun <T> Flowable<T>.onError(): Flowable<T> =
         this.doOnError(::handleError)
@@ -53,6 +69,10 @@ abstract class BaseViewModel : ViewModel() {
 
     protected fun <T> Maybe<T>.onError(): Maybe<T> =
         this.doOnError(::handleError)
+
+    fun setConnection(connected: Boolean) {
+        isConnected = connected
+    }
 
     open fun onSaveState(bundle: Bundle) {}
 
