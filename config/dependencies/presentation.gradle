@@ -68,6 +68,7 @@ dependencies {
     implementation libraries.navigationUi
     testImplementation libraries.rx.java
     implementation libraries.android.location
+    implementation libraries.android.cardView
 
     testImplementation libraries.android.liveData
     testImplementation libraries.android.viewmodel
