@@ -16,5 +16,5 @@ abstract class AppModule {
     abstract fun application(application: App): Application
 
     @ContributesAndroidInjector(modules = [VenueActivityModule::class])
-    abstract fun movieActivityInjector(): VenueActivity
+    abstract fun venueActivityInjector(): VenueActivity
 }
