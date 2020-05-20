@@ -31,6 +31,9 @@ class VenuesFragment : BaseFragment() {
             viewModel.observeClicks(holder.observe())
         }
         observe(viewModel.clickObservable, ::observeActions)
+        observe(viewModel.messageObservable, ::showMessage)
+        viewModel.loadMoreObserver(venuesAdapter.getLoadMoreObservable())
+        observe(viewModel.venueItems, venuesAdapter::addItems)
     }
 
     override fun onCreateView(
@@ -43,6 +46,9 @@ class VenuesFragment : BaseFragment() {
         super.onViewStateRestored(savedInstanceState)
 
         setupList()
+
+        viewModel.coordinate = "40.7243,-74.0018"
+        viewModel.getData()
     }
 
     private fun setupList() {
