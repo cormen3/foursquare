@@ -182,7 +182,7 @@ class LocationManager @Inject constructor(
     }
 
     private fun showDialog() {
-        AlertDialog.Builder(activity, R.style.ThemeOverlay_AppCompat)
+        AlertDialog.Builder(activity, R.style.AppThemeWhite_Dialog)
             .setMessage(R.string.needs_location_permission_for_auto_detect)
             .setNegativeButton(R.string.cancel) { dialog, _ ->
                 disable()
