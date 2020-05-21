@@ -15,6 +15,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.OnLifecycleEvent
 import com.example.common.Constants
+import com.example.common.preferences.PreferencesHelper
 import com.example.presentation.R
 import com.example.presentation.common.extension.*
 import com.google.android.gms.common.api.ApiException
@@ -25,8 +26,9 @@ import javax.inject.Inject
 class LocationManager @Inject constructor(
     private val activity: AppCompatActivity,
     private val lifecycle: Lifecycle,
-    private val callback: OnLocationCallback
-) : LifecycleObserver {
+    private val callback: OnLocationCallback,
+    private val preferencesHelper: PreferencesHelper
+    ) : LifecycleObserver {
 
     private var enabled = false
     private var showRational: Boolean = false
@@ -91,7 +93,18 @@ class LocationManager @Inject constructor(
 
     private fun handleNewUpdate(location: Location?) {
         location?.let { newLocation ->
-            callback.onNewLocation(newLocation)
+            if (preferencesHelper.lastLocation != null) {
+                val distance = Location(newLocation).distanceTo(preferencesHelper.lastLocation)
+
+                if (distance > SMALLEST_DISPLACEMENT) {
+                    callback.onNewLocation(location)
+                    preferencesHelper.lastLocation = location
+                }
+
+            } else {
+                callback.onNewLocation(location)
+                preferencesHelper.lastLocation = location
+            }
         }
     }
 
