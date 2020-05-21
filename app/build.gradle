@@ -25,6 +25,7 @@ dependencies {
     kapt libraries.dagger.processor
     kapt libraries.dagger.compiler
 
+    implementation libraries.android.location
     implementation libraries.kotlin.kotlin
     implementation libraries.dagger.android
     implementation libraries.dagger.support
