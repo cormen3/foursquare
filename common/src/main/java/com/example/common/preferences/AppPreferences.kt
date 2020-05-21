@@ -3,6 +3,7 @@ package com.example.common.preferences
 import android.content.SharedPreferences
 import android.location.Location
 import androidx.core.content.edit
+import com.example.common.extensions.orFalse
 import com.example.common.extensions.safeLet
 import javax.inject.Inject
 
@@ -28,8 +29,17 @@ class AppPreferences @Inject constructor(
             }
         }
 
+    override var hasRequested: Boolean?
+        get() = sharedPreferences.getBoolean(HAS_REQUESTED, false)
+        set(value) {
+            sharedPreferences.edit {
+                putBoolean(HAS_REQUESTED, value.orFalse())
+            }
+        }
+
     companion object {
         const val LATITUDE = "LATITUDE"
         const val LONGITUDE = "LONGITUDE"
+        const val HAS_REQUESTED = "HAS_REQUESTED"
     }
 }

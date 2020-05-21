@@ -42,13 +42,13 @@ class VenuesViewModel @Inject constructor(
     }
 
     fun getData() {
-//        isLoading.value = true
+        isLoading.value = true
             exploreVenuesUseCase.invoke(ExploreVenuesUseCase.Params(true))
                 .onError()
                 .subscribe({
-//                    isLoading.value = false
+                    isLoading.value = false
                 }, {
-//                    isLoading.value = false
+                    isLoading.value = false
                 })
                 .track()
     }

@@ -4,6 +4,7 @@ import android.location.Location
 
 interface PreferencesHelper {
     var lastLocation: Location?
+    var hasRequested: Boolean?
 }
 
 

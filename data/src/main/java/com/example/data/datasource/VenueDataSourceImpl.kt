@@ -40,6 +40,7 @@ class VenueDataSourceImpl @Inject constructor(
                     totalCount = it.response.totalResults
                     val venueList = it.response.groups[0].items.map { it.toVenueEntity() }
                     venuesDao.insertAll(*venueList.toTypedArray())
+                    preferencesHelper.hasRequested = true
                     this.page += 1
                     it
                 }
