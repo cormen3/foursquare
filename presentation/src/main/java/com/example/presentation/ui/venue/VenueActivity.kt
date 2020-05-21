@@ -37,7 +37,7 @@ class VenueActivity : BaseActivity() {
         grantResults: IntArray
     ) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        viewModelVenue.setPermissionResultData(PermissionResultObject(requestCode, permissions, grantResults))
+        viewModelVenue.setPermissionResultData(PermissionResultObject(requestCode, grantResults))
     }
 }
 
