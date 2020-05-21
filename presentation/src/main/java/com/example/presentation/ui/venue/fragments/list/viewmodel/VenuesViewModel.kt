@@ -20,6 +20,7 @@ class VenuesViewModel @Inject constructor(
 ) : BaseViewModel() {
 
     val clickObservable = MutableLiveData<BaseAction>()
+    val isLoading = MutableLiveData<Boolean>(false)
 
     private val _venueItems = MutableLiveData<MutableList<out DomainObject>>()
     val venueItems: MutableLiveData<MutableList<out DomainObject>> = _venueItems
@@ -34,7 +35,6 @@ class VenuesViewModel @Inject constructor(
     private fun observeLoadVenuesFromDb() {
         loadLocationFromDbUseCase.invoke()
             .subscribe({ response ->
-                (response as VenuesObject)
                 totalCount = response.totalCount
                 if (response.Venues.size > 0)
                     _venueItems.value = response.Venues
@@ -43,10 +43,15 @@ class VenuesViewModel @Inject constructor(
     }
 
     fun getData() {
+        isLoading.value = true
         coordinate?.let {
             exploreVenuesUseCase.invoke(ExploreVenuesUseCase.Params(true, it))
                 .onError()
-                .subscribe({}, {})
+                .subscribe({
+                    isLoading.value = false
+                }, {
+                    isLoading.value = false
+                })
                 .track()
         }
     }

@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.common.extensions.orFalse
 import com.example.common.extensions.safeLet
 import com.example.common.viewmodel.ViewModelProviderFactory
 import com.example.domain.entity.ActivityResultObject
@@ -13,6 +14,7 @@ import com.example.domain.entity.PermissionResultObject
 import com.example.presentation.R
 import com.example.presentation.base.BaseFragment
 import com.example.presentation.base.adapter.BaseAction
+import com.example.presentation.common.extension.goneOrVisible
 import com.example.presentation.common.extension.observe
 import com.example.presentation.common.extension.viewModelProvider
 import com.example.presentation.common.location.LocationManager
@@ -50,11 +52,16 @@ class VenuesFragment : BaseFragment(), OnLocationCallback {
         observe(viewModel.clickObservable, ::observeActions)
         observe(viewModel.messageObservable, ::showMessage)
         observe(viewModel.venueItems, venuesAdapter::addItems)
+        observe(viewModel.isLoading, ::handleLoading)
         observe(sharedViewModel.activityResultData, ::observeActivityResultData)
         observe(sharedViewModel.permissionResultData, ::observePermissionResultData)
 
         viewModel.loadMoreObserver(venuesAdapter.getLoadMoreObservable())
         locationManager.enable(forceDetectLocation = true, showRational = true)
+    }
+
+    private fun handleLoading(show: Boolean) {
+        loading.goneOrVisible(show)
     }
 
     private fun observePermissionResultData(permissionResultObject: PermissionResultObject?) {
