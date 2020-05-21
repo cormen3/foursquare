@@ -26,7 +26,6 @@ class VenuesViewModel @Inject constructor(
     val venueItems: MutableLiveData<MutableList<out DomainObject>> = _venueItems
 
     var totalCount: Int = 0
-    var coordinate: String? = null
 
     init {
         observeLoadVenuesFromDb()
@@ -44,8 +43,7 @@ class VenuesViewModel @Inject constructor(
 
     fun getData() {
         isLoading.value = true
-        coordinate?.let {
-            exploreVenuesUseCase.invoke(ExploreVenuesUseCase.Params(true, it))
+            exploreVenuesUseCase.invoke(ExploreVenuesUseCase.Params(true))
                 .onError()
                 .subscribe({
                     isLoading.value = false
@@ -53,7 +51,6 @@ class VenuesViewModel @Inject constructor(
                     isLoading.value = false
                 })
                 .track()
-        }
     }
 
     fun loadMoreObserver(loadMoreObservable: PublishSubject<LoadMoreState>) {
@@ -69,8 +66,7 @@ class VenuesViewModel @Inject constructor(
     }
 
     private fun getMoreVenues(loadMoreObservable: PublishSubject<LoadMoreState>) {
-        coordinate?.let {
-            exploreVenuesUseCase.invoke(ExploreVenuesUseCase.Params(false, it))
+            exploreVenuesUseCase.invoke(ExploreVenuesUseCase.Params(false))
                 .onError()
                 .subscribe({
                     loadMoreObservable.onNext(LoadMoreState.NOT_LOAD)
@@ -78,7 +74,6 @@ class VenuesViewModel @Inject constructor(
                     loadMoreObservable.onNext(LoadMoreState.NOT_LOAD)
                 })
                 .track()
-        }
     }
 
     fun observeClicks(actions: Observable<BaseAction>) {

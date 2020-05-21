@@ -101,11 +101,7 @@ class VenuesFragment : BaseFragment(), OnLocationCallback {
     }
 
     override fun onNewLocation(location: Location?) {
-        location?.let {
-            viewModel.coordinate =
-                location.latitude.toString().plus(",").plus(location.longitude.toString())
-            viewModel.getData()
-        }
+        viewModel.getData()
     }
 
     private fun observeActions(action: BaseAction) {

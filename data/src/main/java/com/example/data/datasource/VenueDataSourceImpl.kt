@@ -1,5 +1,6 @@
 package com.example.data.datasource
 
+import com.example.common.preferences.PreferencesHelper
 import com.example.data.entity.VenuesDao
 import com.example.data.entity.model.dto.Venues
 import com.example.data.extension.onError
@@ -11,7 +12,8 @@ import javax.inject.Inject
 
 class VenueDataSourceImpl @Inject constructor(
     private val api: VenueDataService,
-    private val venuesDao: VenuesDao
+    private val venuesDao: VenuesDao,
+    private val preferencesHelper: PreferencesHelper
 ) : VenueDataSource {
 
     @Volatile
@@ -21,13 +23,13 @@ class VenueDataSourceImpl @Inject constructor(
 
     private lateinit var queries: MutableMap<String, String>
 
-    override fun exploreVenues(isRefresh: Boolean, coordinate:String): Completable {
-        return getAndInsert(isRefresh, coordinate)
+    override fun exploreVenues(isRefresh: Boolean): Completable {
+        return getAndInsert(isRefresh)
     }
 
-    private fun getAndInsert(isRefresh: Boolean, coordinate:String): Completable {
+    private fun getAndInsert(isRefresh: Boolean): Completable {
         return Observable.fromCallable {
-            initQuery(coordinate)
+            initQuery(preferencesHelper.lastLocation.toCoordinates())
         }.flatMapCompletable {
             api.exploreVenues(queries)
                 .doOnNext {
@@ -46,7 +48,7 @@ class VenueDataSourceImpl @Inject constructor(
         }
     }
 
-    private fun initQuery(coordinate:String) {
+    private fun initQuery(coordinate: String) {
         queries = mutableMapOf()
         queries["p"] = page.toString()
         queries["ll"] = coordinate

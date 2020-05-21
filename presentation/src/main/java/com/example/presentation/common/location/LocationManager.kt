@@ -97,13 +97,13 @@ class LocationManager @Inject constructor(
                 val distance = Location(newLocation).distanceTo(preferencesHelper.lastLocation)
 
                 if (distance > SMALLEST_DISPLACEMENT) {
-                    callback.onNewLocation(location)
                     preferencesHelper.lastLocation = location
+                    callback.onNewLocation(location)
                 }
 
             } else {
-                callback.onNewLocation(location)
                 preferencesHelper.lastLocation = location
+                callback.onNewLocation(location)
             }
         }
     }

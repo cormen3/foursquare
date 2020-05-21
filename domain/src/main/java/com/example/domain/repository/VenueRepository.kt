@@ -5,6 +5,6 @@ import io.reactivex.Completable
 import io.reactivex.Flowable
 
 interface VenueRepository {
-    fun exploreVenues(isRefresh:Boolean, coordinate: String): Completable
+    fun exploreVenues(isRefresh: Boolean): Completable
     fun loadLocations(): Flowable<VenuesObject>
 }

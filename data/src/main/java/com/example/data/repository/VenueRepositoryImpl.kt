@@ -11,8 +11,8 @@ class VenueRepositoryImpl @Inject constructor(
     private val dataSource: VenueDataSource
 ) : VenueRepository {
 
-    override fun exploreVenues(isRefresh: Boolean, coordinate: String): Completable =
-        dataSource.exploreVenues(isRefresh, coordinate)
+    override fun exploreVenues(isRefresh: Boolean): Completable =
+        dataSource.exploreVenues(isRefresh)
 
     override fun loadLocations(): Flowable<VenuesObject> =
         dataSource.loadLocations().map { it.toVenuesObject() }
