@@ -32,7 +32,7 @@ class VenuesAdapter(
         }
     }
 
-    override fun <T : DomainObject> addItems(items: MutableList<T>) {
+    override fun <T : DomainObject> addItems(items: MutableList<out T>) {
         removeAll()
         super.addItemsWithoutClear(items)
     }

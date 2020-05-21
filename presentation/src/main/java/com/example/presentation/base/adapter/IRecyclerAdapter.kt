@@ -7,11 +7,11 @@ interface IRecyclerAdapter {
 
     fun <T : DomainObject> addItem(item: T)
 
-    fun <T : DomainObject> addItems(items: MutableList<T>)
+    fun <T : DomainObject> addItems(items: MutableList<out T>)
 
     fun addItemsList(items: List<*>)
 
-    fun <T : DomainObject> addItemsWithoutClear(items: MutableList<T>)
+    fun <T : DomainObject> addItemsWithoutClear(items: MutableList<out T>)
 
     fun remove(index: Int)
 

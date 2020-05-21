@@ -54,7 +54,7 @@ abstract class BaseRecyclerAdapter() : RecyclerView.Adapter<BaseViewHolder<*>>()
         notifyItemInserted(mItems.size - 1)
     }
 
-    override fun <T : DomainObject> addItems(items: MutableList<T>) {
+    override fun <T : DomainObject> addItems(items: MutableList<out T>) {
         removeAll()
         this.mItems.addAll(items)
         notifyDataSetChanged()
@@ -69,7 +69,7 @@ abstract class BaseRecyclerAdapter() : RecyclerView.Adapter<BaseViewHolder<*>>()
         notifyDataSetChanged()
     }
 
-    override fun <T : DomainObject> addItemsWithoutClear(items: MutableList<T>) {
+    override fun <T : DomainObject> addItemsWithoutClear(items: MutableList<out T>) {
         this.mItems.addAll(items)
         notifyDataSetChanged()
     }
