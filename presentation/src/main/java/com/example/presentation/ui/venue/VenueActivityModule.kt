@@ -1,15 +1,20 @@
 package com.example.presentation.ui.venue
 
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModel
 import com.example.presentation.base.BaseActivityModule
-import com.example.presentation.ui.venue.fragments.list.view.VenuesFragmentModule
+import com.example.presentation.common.di.ViewModelKey
 import com.example.presentation.ui.venue.fragments.list.view.VenuesFragment
+import com.example.presentation.ui.venue.fragments.list.view.VenuesFragmentModule
 import dagger.Binds
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
+import dagger.multibindings.IntoMap
 
 @Module(
-    includes = [BaseActivityModule::class]
+    includes = [
+        BaseActivityModule::class
+    ]
 )
 abstract class VenueActivityModule {
 
@@ -18,4 +23,9 @@ abstract class VenueActivityModule {
 
     @ContributesAndroidInjector(modules = [VenuesFragmentModule::class])
     abstract fun venueFragmentInjector(): VenuesFragment
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(VenueSharedViewModel::class)
+    abstract fun viewModel(viewModelVenue: VenueSharedViewModel): ViewModel
 }
