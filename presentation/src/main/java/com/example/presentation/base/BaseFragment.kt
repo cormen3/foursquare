@@ -3,6 +3,7 @@ package com.example.presentation.base
 import android.content.Context
 import android.os.Bundle
 import androidx.annotation.StringRes
+import com.example.presentation.common.extension.toast
 import dagger.android.support.AndroidSupportInjection
 import dagger.android.support.DaggerFragment
 import javax.inject.Inject
@@ -26,8 +27,6 @@ abstract class BaseFragment : DaggerFragment(), MessagePresenter {
     }
 
     override fun showMessage(message: String) {
-    }
-
-    override fun showMessage(message: MessageData) {
+        activity?.applicationContext?.toast(message)
     }
 }

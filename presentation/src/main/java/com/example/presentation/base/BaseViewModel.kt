@@ -16,7 +16,7 @@ abstract class BaseViewModel : ViewModel() {
 
     private val disposable = CompositeDisposable()
     private val taggedDisposables = mutableMapOf<String, Disposable>()
-    val messageObservable: MutableLiveData<MessageData> = MutableLiveData()
+    val messageObservable: MutableLiveData<String> = MutableLiveData()
 
     protected fun Disposable.track(tag: String? = null): Disposable {
         disposable.add(this)
@@ -52,7 +52,7 @@ abstract class BaseViewModel : ViewModel() {
             errorMessage = ErrorMessage.ERROR_NO_NET
         }
 
-        messageObservable.value = MessageData(message = errorMessage)
+        messageObservable.value = errorMessage
     }
 
     protected fun <T> Flowable<T>.onError(): Flowable<T> =
