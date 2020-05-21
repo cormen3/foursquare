@@ -11,6 +11,7 @@ import dagger.Binds
 import dagger.Module
 import dagger.Provides
 import javax.inject.Named
+import javax.inject.Singleton
 
 @Module(
     includes = [
@@ -23,4 +24,15 @@ abstract class VenuesFragmentModule {
     @Binds
     @Named(BaseFragmentModule.FRAGMENT)
     abstract fun fragment(venuesFragment: VenuesFragment): Fragment
+
+    @Binds
+    abstract fun locationCallback(venuesFragment: VenuesFragment): OnLocationCallback
+
+    @Module
+    companion object {
+        @Provides
+        @JvmStatic
+        fun provideLifecycle(venuesFragment: VenuesFragment): Lifecycle =
+            venuesFragment.lifecycle
+    }
 }
