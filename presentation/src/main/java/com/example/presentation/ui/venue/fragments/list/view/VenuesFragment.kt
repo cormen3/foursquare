@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.common.extensions.orFalse
 import com.example.common.extensions.safeLet
 import com.example.common.viewmodel.ViewModelProviderFactory
 import com.example.domain.entity.ActivityResultObject
