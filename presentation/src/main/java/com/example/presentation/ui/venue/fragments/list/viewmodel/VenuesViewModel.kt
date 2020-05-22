@@ -3,7 +3,6 @@ package com.example.presentation.ui.venue.fragments.list.viewmodel
 import androidx.lifecycle.MutableLiveData
 import com.example.common.extensions.orZero
 import com.example.domain.entity.DomainObject
-import com.example.domain.entity.venue.VenuesObject
 import com.example.domain.usecase.ExploreVenuesUseCase
 import com.example.domain.usecase.LoadLocationFromDbUseCase
 import com.example.domain.usecase.base.invoke
@@ -21,6 +20,7 @@ class VenuesViewModel @Inject constructor(
 
     val clickObservable = MutableLiveData<BaseAction>()
     val isLoading = MutableLiveData<Boolean>(false)
+    val hasError = MutableLiveData<Boolean>(false)
 
     private val _venueItems = MutableLiveData<MutableList<out DomainObject>>()
     val venueItems: MutableLiveData<MutableList<out DomainObject>> = _venueItems
@@ -42,15 +42,16 @@ class VenuesViewModel @Inject constructor(
     }
 
     fun getData() {
+        hasError.value = false
         isLoading.value = true
-            exploreVenuesUseCase.invoke(ExploreVenuesUseCase.Params(true))
-                .onError()
-                .subscribe({
-                    isLoading.value = false
-                }, {
-                    isLoading.value = false
-                })
-                .track()
+        exploreVenuesUseCase.invoke(ExploreVenuesUseCase.Params(true))
+            .onError()
+            .subscribe({
+                isLoading.value = false
+            }, {
+                hasError.value = true
+            })
+            .track()
     }
 
     fun loadMoreObserver(loadMoreObservable: PublishSubject<LoadMoreState>) {
@@ -66,14 +67,14 @@ class VenuesViewModel @Inject constructor(
     }
 
     private fun getMoreVenues(loadMoreObservable: PublishSubject<LoadMoreState>) {
-            exploreVenuesUseCase.invoke(ExploreVenuesUseCase.Params(false))
-                .onError()
-                .subscribe({
-                    loadMoreObservable.onNext(LoadMoreState.NOT_LOAD)
-                }, {
-                    loadMoreObservable.onNext(LoadMoreState.NOT_LOAD)
-                })
-                .track()
+        exploreVenuesUseCase.invoke(ExploreVenuesUseCase.Params(false))
+            .onError()
+            .subscribe({
+                loadMoreObservable.onNext(LoadMoreState.NOT_LOAD)
+            }, {
+                loadMoreObservable.onNext(LoadMoreState.NOT_LOAD)
+            })
+            .track()
     }
 
     fun observeClicks(actions: Observable<BaseAction>) {
