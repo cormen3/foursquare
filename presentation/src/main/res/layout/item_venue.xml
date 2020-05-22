@@ -1,91 +1,114 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:background="?selectableItemBackground"
+    android:paddingTop="@dimen/venue_item_padding_vertical"
+    android:paddingBottom="@dimen/venue_item_padding_vertical"
+    tools:targetApi="o">
 
-    <androidx.cardview.widget.CardView
-        style="@style/CardView.Light"
-        android:layout_width="match_parent"
-        android:layout_height="170dp"
-        android:layout_gravity="bottom"
-        android:layout_marginBottom="8dp"
-        android:background="?attr/bgColor"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/itemVenueGuidelineStart"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="@dimen/venue_key_line" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/itemVenueGuidelineEnd"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="@dimen/margin_small" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/itemVenueIcon"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="?listPreferredItemPaddingStart"
+        android:contentDescription="@null"
+        android:src="@drawable/ic_android"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/itemVenueTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textAlignment="viewStart"
+        android:textAppearance="?textAppearanceListItem"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/itemVenueBookmark"
+        app:layout_constraintStart_toEndOf="@id/itemVenueGuidelineStart"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Place name" />
+
+    <com.google.android.material.internal.CheckableImageButton
+        android:id="@+id/itemVenueBookmark"
+        android:layout_width="@dimen/min_touch_target"
+        android:layout_height="@dimen/min_touch_target"
+        android:background="?selectableItemBackgroundBorderless"
+        android:src="@drawable/ic_star_border"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <LinearLayout
-            android:id="@+id/itemVenueDetails"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_alignParentEnd="true"
-            android:layout_marginBottom="8dp"
-            android:background="@drawable/bg_ripple"
-            android:orientation="vertical"
-            android:padding="5dp"
-            android:paddingStart="24dp"
-            android:paddingTop="5dp"
-            android:paddingEnd="4dp"
-            android:paddingBottom="5dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/itemVenueAddress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_micro"
+        android:drawableStart="@drawable/ic_location"
+        android:drawablePadding="@dimen/spacing_normal"
+        android:gravity="center_vertical"
+        app:layout_constraintStart_toEndOf="@id/itemVenueGuidelineStart"
+        app:layout_constraintTop_toBottomOf="@id/itemVenueTitle"
+        tools:text="Azadi Sq" />
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/itemVenueTitle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:ellipsize="end"
-                android:maxLength="40"
-                android:singleLine="true"
-                android:text=""
-                android:textColor="?attr/titleColor"
-                android:textSize="18sp" />
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/itemVenueDistanceIcon"
+        android:layout_width="18dp"
+        android:layout_height="24dp"
+        android:layout_marginEnd="14dp"
+        android:importantForAccessibility="no"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toTopOf="@id/itemVenueAddressBarrier"
+        app:layout_constraintEnd_toStartOf="@id/itemVenueDistance"
+        app:layout_constraintStart_toEndOf="@id/itemVenueGuidelineStart"
+        app:layout_constraintTop_toBottomOf="@id/itemVenueAddress"
+        app:srcCompat="@drawable/ic_distance" />
 
-            <RatingBar
-                android:id="@+id/itemVenueRating"
-                style="?android:attr/ratingBarStyleSmall"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="6dp"
-                android:progressTint="@color/colorAccent"
-                android:rating="4" />
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/itemVenueDistance"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textAlignment="viewStart"
+        app:layout_constraintBottom_toTopOf="@id/itemVenueAddressBarrier"
+        app:layout_constraintEnd_toStartOf="@id/itemVenueGuidelineEnd"
+        app:layout_constraintStart_toEndOf="@id/itemVenueDistanceIcon"
+        app:layout_constraintTop_toBottomOf="@id/itemVenueAddress"
+        tools:text="1200 meters" />
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="6dp"
-                android:ellipsize="end"
-                android:maxLength="40"
-                android:singleLine="true"
-                android:textColor="?attr/secondaryTextColor"
-                android:textSize="12sp" />
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/itemVenueAddressBarrier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="bottom"
+        app:constraint_referenced_ids="itemVenueDistanceIcon,itemVenueDistance" />
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="6dp"
-                android:ellipsize="end"
-                android:maxLength="40"
-                android:singleLine="true"
-                android:textColor="?attr/secondaryTextColor"
-                android:textSize="12sp" />
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/itemVenueOverview"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="right"
-                android:layout_marginEnd="12dp"
-                android:maxLines="3"
-                android:textColor="?attr/secondaryTextColor"
-                android:textSize="12sp" />
-        </LinearLayout>
-
-    </androidx.cardview.widget.CardView>
-
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/itemVenueFormattedAddress"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_micro"
+        android:drawableStart="@drawable/ic_location_city"
+        android:drawablePadding="@dimen/spacing_normal"
+        android:gravity="center_vertical|left"
+        app:layout_constraintEnd_toEndOf="@id/itemVenueGuidelineEnd"
+        app:layout_constraintStart_toStartOf="@id/itemVenueGuidelineStart"
+        app:layout_constraintTop_toBottomOf="@id/itemVenueAddressBarrier"
+        tools:text="Tehran, Iran" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+

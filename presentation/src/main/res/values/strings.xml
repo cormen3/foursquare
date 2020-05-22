@@ -13,4 +13,5 @@
     <string name="btn_retry">RETRY</string>
     <string name="error_msg">Sorry! Couldn\'t fetch locations</string>
     <string name="server_not_respond">Not able to fetch data from server.</string>
+    <string name="meters">meters</string>
 </resources>
