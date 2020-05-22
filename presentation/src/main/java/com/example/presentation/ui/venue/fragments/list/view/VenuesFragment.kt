@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.common.extensions.orFalse
 import com.example.common.extensions.safeLet
 import com.example.common.viewmodel.ViewModelProviderFactory
 import com.example.domain.entity.ActivityResultObject
@@ -13,14 +14,13 @@ import com.example.domain.entity.PermissionResultObject
 import com.example.presentation.R
 import com.example.presentation.base.BaseFragment
 import com.example.presentation.base.adapter.BaseAction
-import com.example.presentation.common.extension.goneOrVisible
-import com.example.presentation.common.extension.observe
-import com.example.presentation.common.extension.viewModelProvider
+import com.example.presentation.common.extension.*
 import com.example.presentation.common.location.LocationManager
 import com.example.presentation.common.location.OnLocationCallback
 import com.example.presentation.ui.venue.VenueSharedViewModel
 import com.example.presentation.ui.venue.fragments.list.view.adapter.VenuesAdapter
 import com.example.presentation.ui.venue.fragments.list.viewmodel.VenuesViewModel
+import kotlinx.android.synthetic.main.error_layout.*
 import kotlinx.android.synthetic.main.fragment_venues.*
 import javax.inject.Inject
 
@@ -52,11 +52,17 @@ class VenuesFragment : BaseFragment(), OnLocationCallback {
         observe(viewModel.messageObservable, ::showMessage)
         observe(viewModel.venueItems, venuesAdapter::addItems)
         observe(viewModel.isLoading, ::handleLoading)
+        observe(viewModel.hasError, ::showError)
         observe(sharedViewModel.activityResultData, ::observeActivityResultData)
         observe(sharedViewModel.permissionResultData, ::observePermissionResultData)
 
         viewModel.loadMoreObserver(venuesAdapter.getLoadMoreObservable())
         locationManager.enable(forceDetectLocation = true, showRational = true)
+    }
+
+    private fun showError(hasError: Boolean?) {
+        errorLayout.goneOrVisible(hasError.orFalse())
+        loading.gone()
     }
 
     private fun handleLoading(show: Boolean) {
@@ -91,6 +97,10 @@ class VenuesFragment : BaseFragment(), OnLocationCallback {
         super.onViewStateRestored(savedInstanceState)
 
         setupList()
+
+        errorRetryButton.setOnClickListener {
+            viewModel.getData()
+        }
     }
 
     private fun setupList() {

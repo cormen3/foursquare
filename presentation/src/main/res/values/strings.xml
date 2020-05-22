@@ -10,4 +10,7 @@
     <string name="release_date">Release Date: </string>
     <string name="retry">retry</string>
     <string name="location_req_message">To continue, turn on device location, which uses Google\'s location service</string>
+    <string name="btn_retry">RETRY</string>
+    <string name="error_msg">Sorry! Couldn\'t fetch locations</string>
+    <string name="server_not_respond">Not able to fetch data from server.</string>
 </resources>
