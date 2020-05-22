@@ -7,7 +7,7 @@ import com.example.data.extension.onError
 import com.example.data.network.VenueDataService
 import io.reactivex.Completable
 import io.reactivex.Flowable
-import io.reactivex.Observable
+import io.reactivex.Single
 import javax.inject.Inject
 
 class VenueDataSourceImpl @Inject constructor(
@@ -21,18 +21,13 @@ class VenueDataSourceImpl @Inject constructor(
 
     private var totalCount: Int = 0
 
-    private lateinit var queries: MutableMap<String, String>
-
-    override fun exploreVenues(isRefresh: Boolean): Completable {
+    override fun exploreVenues(isRefresh: Boolean): Single<Boolean> {
         return getAndInsert(isRefresh)
     }
 
-    private fun getAndInsert(isRefresh: Boolean): Completable {
-        return Observable.fromCallable {
-            initQuery(preferencesHelper.lastLocation.toCoordinates())
-        }.flatMapCompletable {
-            api.exploreVenues(queries)
-                .doOnNext {
+    private fun getAndInsert(isRefresh: Boolean): Single<Boolean> {
+        return api.exploreVenues(getQueryParams())
+                .doOnSubscribe {
                     if (isRefresh)
                         venuesDao.clearAll()
                 }
@@ -42,17 +37,16 @@ class VenueDataSourceImpl @Inject constructor(
                     venuesDao.insertAll(*venueList.toTypedArray())
                     preferencesHelper.hasRequested = true
                     this.page += 1
-                    it
+                    true
                 }
-                .ignoreElements()
                 .onError()
         }
-    }
 
-    private fun initQuery(coordinate: String) {
-        queries = mutableMapOf()
+    private fun getQueryParams(): MutableMap<String, String> {
+        val queries = mutableMapOf<String, String>()
         queries["p"] = page.toString()
-        queries["ll"] = coordinate
+        queries["ll"] = preferencesHelper.lastLocation.toCoordinates()
+        return queries
     }
 
     override fun loadLocations(): Flowable<Venues> {

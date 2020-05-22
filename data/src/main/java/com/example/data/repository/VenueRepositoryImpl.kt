@@ -5,13 +5,14 @@ import com.example.domain.entity.venue.VenuesObject
 import com.example.domain.repository.VenueRepository
 import io.reactivex.Completable
 import io.reactivex.Flowable
+import io.reactivex.Single
 import javax.inject.Inject
 
 class VenueRepositoryImpl @Inject constructor(
     private val dataSource: VenueDataSource
 ) : VenueRepository {
 
-    override fun exploreVenues(isRefresh: Boolean): Completable =
+    override fun exploreVenues(isRefresh: Boolean): Single<Boolean> =
         dataSource.exploreVenues(isRefresh)
 
     override fun loadLocations(): Flowable<VenuesObject> =
