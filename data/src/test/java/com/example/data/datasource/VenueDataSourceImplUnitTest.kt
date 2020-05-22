@@ -18,7 +18,6 @@ import org.mockito.junit.MockitoJUnitRunner
 @RunWith(MockitoJUnitRunner::class)
 class VenueDataSourceImplUnitTest {
 
-    @Suppress("unused")
     @get:Rule // used to make all live data calls sync
     val instantExecutor = InstantTaskExecutorRule()
 
