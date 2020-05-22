@@ -44,7 +44,7 @@ class VenuesViewModel @Inject constructor(
     fun getData() {
         hasError.value = false
         isLoading.value = true
-        exploreVenuesUseCase.invoke(ExploreVenuesUseCase.Params(true))
+        exploreVenuesUseCase.invoke(ExploreVenuesUseCase.Params(false))
             .onError()
             .subscribe({
                 isLoading.value = false
@@ -67,7 +67,7 @@ class VenuesViewModel @Inject constructor(
     }
 
     private fun getMoreVenues(loadMoreObservable: PublishSubject<LoadMoreState>) {
-        exploreVenuesUseCase.invoke(ExploreVenuesUseCase.Params(false))
+        exploreVenuesUseCase.invoke(ExploreVenuesUseCase.Params(true))
             .onError()
             .subscribe({
                 loadMoreObservable.onNext(LoadMoreState.NOT_LOAD)

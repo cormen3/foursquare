@@ -12,8 +12,8 @@ class VenueRepositoryImpl @Inject constructor(
     private val dataSource: VenueDataSource
 ) : VenueRepository {
 
-    override fun exploreVenues(isRefresh: Boolean): Single<Boolean> =
-        dataSource.exploreVenues(isRefresh)
+    override fun exploreVenues(isLoadMore: Boolean): Single<Boolean> =
+        dataSource.exploreVenues(isLoadMore)
 
     override fun loadLocations(): Flowable<VenuesObject> =
         dataSource.loadLocations().map { it.toVenuesObject() }

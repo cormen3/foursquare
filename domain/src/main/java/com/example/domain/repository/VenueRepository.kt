@@ -6,6 +6,6 @@ import io.reactivex.Flowable
 import io.reactivex.Single
 
 interface VenueRepository {
-    fun exploreVenues(isRefresh: Boolean): Single<Boolean>
+    fun exploreVenues(isLoadMore: Boolean): Single<Boolean>
     fun loadLocations(): Flowable<VenuesObject>
 }
