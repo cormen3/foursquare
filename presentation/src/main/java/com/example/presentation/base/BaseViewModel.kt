@@ -12,8 +12,6 @@ import io.reactivex.disposables.Disposable
 
 abstract class BaseViewModel : ViewModel() {
 
-    private var isConnected = true
-
     private val disposable = CompositeDisposable()
     private val taggedDisposables = mutableMapOf<String, Disposable>()
     val messageObservable: MutableLiveData<String> = MutableLiveData()
@@ -45,14 +43,7 @@ abstract class BaseViewModel : ViewModel() {
     }
 
     private fun handleError(error: Throwable) {
-
-        var errorMessage = ErrorHandler.getError(error)
-
-        if (!isConnected) {
-            errorMessage = ErrorMessage.ERROR_NO_NET
-        }
-
-        messageObservable.value = errorMessage
+        messageObservable.value = ErrorHandler.getError(error)
     }
 
     protected fun <T> Flowable<T>.onError(): Flowable<T> =
@@ -69,10 +60,6 @@ abstract class BaseViewModel : ViewModel() {
 
     protected fun <T> Maybe<T>.onError(): Maybe<T> =
         this.doOnError(::handleError)
-
-    fun setConnection(connected: Boolean) {
-        isConnected = connected
-    }
 
     open fun onSaveState(bundle: Bundle) {}
 
