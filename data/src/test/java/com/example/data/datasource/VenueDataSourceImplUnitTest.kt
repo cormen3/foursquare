@@ -28,10 +28,12 @@ class VenueDataSourceImplUnitTest {
     private val failedApi: VenueDataService = FailedVenueApi()
 
     private lateinit var dataSource: VenueDataSourceImpl
+    private lateinit var dataSourceFail: VenueDataSourceImpl
 
     @Before
     fun setup() {
         this.dataSource = spy(VenueDataSourceImpl(api, venuesDao, preferencesHelper))
+        this.dataSourceFail = spy(VenueDataSourceImpl(failedApi, venuesDao, preferencesHelper))
     }
 
     @Test
@@ -43,9 +45,8 @@ class VenueDataSourceImplUnitTest {
 
     @Test
     fun `get venues onError`() {
-        this.dataSource = spy(VenueDataSourceImpl(failedApi, venuesDao, preferencesHelper))
         try {
-            dataSource.exploreVenues(true)
+            dataSourceFail.exploreVenues(true)
             Assert.fail("Should have thrown ErrorThrowable")
         } catch (e: ErrorThrowable) {
         }
