@@ -2,6 +2,7 @@ package com.example.presentation.ui.venue.fragments.list.view
 
 import android.location.Location
 import android.os.Bundle
+import android.os.Parcelable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -69,6 +70,16 @@ class VenuesFragment : BaseFragment(), OnLocationCallback {
         loading.goneOrVisible(show)
     }
 
+    override fun onPause() {
+        super.onPause()
+        saveScrollPosition()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        restoreScrollPosition()
+    }
+
     private fun observePermissionResultData(permissionResultObject: PermissionResultObject?) {
         safeLet(
             permissionResultObject?.requestCode,
@@ -110,10 +121,27 @@ class VenuesFragment : BaseFragment(), OnLocationCallback {
         }
     }
 
+    private fun saveScrollPosition() {
+        viewModel.mBundleRecyclerViewState = Bundle()
+        val listState = venuesRecyclerView.layoutManager?.onSaveInstanceState()
+        viewModel.mBundleRecyclerViewState?.putParcelable(KEY_RECYCLER_STATE, listState)
+    }
+
+    private fun restoreScrollPosition() {
+        viewModel.mBundleRecyclerViewState?.let {
+            val listState = it.getParcelable<Parcelable>(KEY_RECYCLER_STATE)
+            venuesRecyclerView.layoutManager?.onRestoreInstanceState(listState)
+        }
+    }
+
     override fun onNewLocation(location: Location?) {
         viewModel.getData()
     }
 
     private fun observeActions(action: BaseAction) {
+    }
+
+    companion object {
+        var KEY_RECYCLER_STATE = "KEY_RECYCLER_STATE"
     }
 }

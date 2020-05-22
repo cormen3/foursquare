@@ -1,5 +1,6 @@
 package com.example.presentation.ui.venue.fragments.list.viewmodel
 
+import android.os.Bundle
 import androidx.lifecycle.MutableLiveData
 import com.example.common.extensions.orZero
 import com.example.domain.entity.DomainObject
@@ -21,6 +22,7 @@ class VenuesViewModel @Inject constructor(
     val clickObservable = MutableLiveData<BaseAction>()
     val isLoading = MutableLiveData<Boolean>(false)
     val hasError = MutableLiveData<Boolean>(false)
+    var mBundleRecyclerViewState: Bundle? = null
 
     private val _venueItems = MutableLiveData<MutableList<out DomainObject>>()
     val venueItems: MutableLiveData<MutableList<out DomainObject>> = _venueItems

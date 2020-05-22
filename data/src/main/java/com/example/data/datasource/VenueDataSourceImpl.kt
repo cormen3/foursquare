@@ -5,7 +5,6 @@ import com.example.data.entity.VenuesDao
 import com.example.data.entity.model.dto.Venues
 import com.example.data.extension.onError
 import com.example.data.network.VenueDataService
-import io.reactivex.Completable
 import io.reactivex.Flowable
 import io.reactivex.Single
 import javax.inject.Inject
@@ -27,20 +26,22 @@ class VenueDataSourceImpl @Inject constructor(
 
     private fun getAndInsert(isRefresh: Boolean): Single<Boolean> {
         return api.exploreVenues(getQueryParams())
-                .doOnSubscribe {
-                    if (isRefresh)
-                        venuesDao.clearAll()
+            .doOnSubscribe {
+                if (isRefresh)
+                    venuesDao.clearAll()
+            }
+            .map {
+                totalCount = it.response.totalResults
+                val venueList = it.response.groups[0].items.map { venueItem ->
+                    venueItem.toVenueEntity()
                 }
-                .map {
-                    totalCount = it.response.totalResults
-                    val venueList = it.response.groups[0].items.map { it.toVenueEntity() }
-                    venuesDao.insertAll(*venueList.toTypedArray())
-                    preferencesHelper.hasRequested = true
-                    this.page += 1
-                    true
-                }
-                .onError()
-        }
+                venuesDao.insertAll(*venueList.toTypedArray())
+                preferencesHelper.hasRequested = true
+                this.page += 1
+                true
+            }
+            .onError()
+    }
 
     private fun getQueryParams(): MutableMap<String, String> {
         val queries = mutableMapOf<String, String>()
