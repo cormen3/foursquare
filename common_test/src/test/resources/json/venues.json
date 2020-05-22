@@ -1,0 +1,904 @@
+{
+  "meta": {
+    "code": 200,
+    "requestId": "5ec798040be7b4001bc6b816"
+  },
+  "response": {
+    "suggestedFilters": {
+      "header": "Tap to show:",
+      "filters": [{
+        "name": "Open now",
+        "key": "openNow"
+      }]
+    },
+    "headerLocation": "Minṭaqa 13",
+    "headerFullLocation": "Minṭaqa 13, Tehrān",
+    "headerLocationGranularity": "neighborhood",
+    "totalResults": 18,
+    "suggestedBounds": {
+      "ne": {
+        "lat": 35.70679760900001,
+        "lng": 51.45701781686751
+      },
+      "sw": {
+        "lat": 35.68879759099999,
+        "lng": 51.43489458313248
+      }
+    },
+    "groups": [{
+      "type": "Recommended Places",
+      "name": "recommended",
+      "items": [{
+        "reasons": {
+          "count": 0,
+          "items": [{
+            "summary": "This spot is popular",
+            "type": "general",
+            "reasonName": "globalInteractionReason"
+          }]
+        },
+        "venue": {
+          "id": "5421a459498ee14d9fd56a5e",
+          "name": "رستوران منصور | Mansour Restaurant",
+          "location": {
+            "lat": 35.69977629617391,
+            "lng": 51.43670288410483,
+            "labeledLatLngs": [{
+              "label": "display",
+              "lat": 35.69977629617391,
+              "lng": 51.43670288410483
+            }],
+            "distance": 865,
+            "cc": "IR",
+            "city": "Tehran",
+            "state": "Tehran",
+            "country": "Iran",
+            "formattedAddress": [
+              "Tehransejam.ir Tehran",
+              "Iran"
+            ]
+          },
+          "categories": [{
+            "id": "52e81612bcbc57f1066b79f7",
+            "name": "Persian Restaurant",
+            "pluralName": "Persian Restaurants",
+            "shortName": "Persian",
+            "icon": {
+              "prefix": "https://ss3.4sqi.net/img/categories_v2/food/middleeastern_",
+              "suffix": ".png"
+            },
+            "primary": true
+          }],
+          "photos": {
+            "count": 0,
+            "groups": []
+          }
+        },
+        "referralId": "e-0-5421a459498ee14d9fd56a5e-0"
+      },
+        {
+          "reasons": {
+            "count": 0,
+            "items": [{
+              "summary": "This spot is popular",
+              "type": "general",
+              "reasonName": "globalInteractionReason"
+            }]
+          },
+          "venue": {
+            "id": "5151794ce4b0362350415aba",
+            "name": "Fedra (فدرا)",
+            "location": {
+              "crossStreet": "Baharestan St.",
+              "lat": 35.696225974989254,
+              "lng": 51.43544525235661,
+              "labeledLatLngs": [{
+                "label": "display",
+                "lat": 35.696225974989254,
+                "lng": 51.43544525235661
+              }],
+              "distance": 966,
+              "cc": "IR",
+              "city": "Tehran",
+              "state": "Tehran",
+              "country": "Iran",
+              "formattedAddress": [
+                "Tehran, Tehran",
+                "Iran"
+              ]
+            },
+            "categories": [{
+              "id": "4bf58dd8d48988d1c5941735",
+              "name": "Sandwich Place",
+              "pluralName": "Sandwich Places",
+              "shortName": "Sandwiches",
+              "icon": {
+                "prefix": "https://ss3.4sqi.net/img/categories_v2/food/deli_",
+                "suffix": ".png"
+              },
+              "primary": true
+            }],
+            "photos": {
+              "count": 0,
+              "groups": []
+            }
+          },
+          "referralId": "e-0-5151794ce4b0362350415aba-1"
+        },
+        {
+          "reasons": {
+            "count": 0,
+            "items": [{
+              "summary": "This spot is popular",
+              "type": "general",
+              "reasonName": "globalInteractionReason"
+            }]
+          },
+          "venue": {
+            "id": "53ad9fcc498eb839dee3a023",
+            "name": "Shahid Fakouri Etka Department Store (فروشگاه اتکا شهید فکوری)",
+            "location": {
+              "lat": 35.69088640094079,
+              "lng": 51.452387636301346,
+              "labeledLatLngs": [{
+                "label": "display",
+                "lat": 35.69088640094079,
+                "lng": 51.452387636301346
+              }],
+              "distance": 964,
+              "cc": "IR",
+              "city": "Tehran",
+              "state": "Tehran",
+              "country": "Iran",
+              "formattedAddress": [
+                "Tehran, Tehran",
+                "Iran"
+              ]
+            },
+            "categories": [{
+              "id": "4bf58dd8d48988d1f6941735",
+              "name": "Department Store",
+              "pluralName": "Department Stores",
+              "shortName": "Department Store",
+              "icon": {
+                "prefix": "https://ss3.4sqi.net/img/categories_v2/shops/departmentstore_",
+                "suffix": ".png"
+              },
+              "primary": true
+            }],
+            "photos": {
+              "count": 0,
+              "groups": []
+            }
+          },
+          "referralId": "e-0-53ad9fcc498eb839dee3a023-2"
+        },
+        {
+          "reasons": {
+            "count": 0,
+            "items": [{
+              "summary": "This spot is popular",
+              "type": "general",
+              "reasonName": "globalInteractionReason"
+            }]
+          },
+          "venue": {
+            "id": "54dc56ba498e766ab833ad10",
+            "name": "قهوه خانه مهران",
+            "location": {
+              "lat": 35.700141855116605,
+              "lng": 51.44259581129036,
+              "labeledLatLngs": [{
+                "label": "display",
+                "lat": 35.700141855116605,
+                "lng": 51.44259581129036
+              }],
+              "distance": 400,
+              "cc": "IR",
+              "country": "Iran",
+              "formattedAddress": [
+                "Iran"
+              ]
+            },
+            "categories": [{
+              "id": "52e81612bcbc57f1066b79f1",
+              "name": "Bistro",
+              "pluralName": "Bistros",
+              "shortName": "Bistro",
+              "icon": {
+                "prefix": "https://ss3.4sqi.net/img/categories_v2/food/default_",
+                "suffix": ".png"
+              },
+              "primary": true
+            }],
+            "photos": {
+              "count": 0,
+              "groups": []
+            }
+          },
+          "referralId": "e-0-54dc56ba498e766ab833ad10-3"
+        },
+        {
+          "reasons": {
+            "count": 0,
+            "items": [{
+              "summary": "This spot is popular",
+              "type": "general",
+              "reasonName": "globalInteractionReason"
+            }]
+          },
+          "venue": {
+            "id": "51ded878498e4971a7aa72ab",
+            "name": "Ebn-e Sina Square (میدان ابن سینا)",
+            "location": {
+              "address": "Ebn-e Sina Sq.",
+              "lat": 35.699012793877664,
+              "lng": 51.437471961603066,
+              "labeledLatLngs": [{
+                "label": "display",
+                "lat": 35.699012793877664,
+                "lng": 51.437471961603066
+              }],
+              "distance": 778,
+              "cc": "IR",
+              "city": "Tehran",
+              "state": "Tehran",
+              "country": "Iran",
+              "formattedAddress": [
+                "Ebn-e Sina Sq.",
+                "Tehran, Tehran",
+                "Iran"
+              ]
+            },
+            "categories": [{
+              "id": "4bf58dd8d48988d164941735",
+              "name": "Plaza",
+              "pluralName": "Plazas",
+              "shortName": "Plaza",
+              "icon": {
+                "prefix": "https://ss3.4sqi.net/img/categories_v2/parks_outdoors/plaza_",
+                "suffix": ".png"
+              },
+              "primary": true
+            }],
+            "photos": {
+              "count": 0,
+              "groups": []
+            }
+          },
+          "referralId": "e-0-51ded878498e4971a7aa72ab-4"
+        },
+        {
+          "reasons": {
+            "count": 0,
+            "items": [{
+              "summary": "This spot is popular",
+              "type": "general",
+              "reasonName": "globalInteractionReason"
+            }]
+          },
+          "venue": {
+            "id": "554cdc3f498e53034f7d99c2",
+            "name": "خیابان ١٧ شهريور",
+            "location": {
+              "lat": 35.69445474812781,
+              "lng": 51.44867418669849,
+              "labeledLatLngs": [{
+                "label": "display",
+                "lat": 35.69445474812781,
+                "lng": 51.44867418669849
+              }],
+              "distance": 445,
+              "cc": "IR",
+              "country": "Iran",
+              "formattedAddress": [
+                "Iran"
+              ]
+            },
+            "categories": [{
+              "id": "52e81612bcbc57f1066b7a25",
+              "name": "Pedestrian Plaza",
+              "pluralName": "Pedestrian Plazas",
+              "shortName": "Pedestrian Street/Plaza",
+              "icon": {
+                "prefix": "https://ss3.4sqi.net/img/categories_v2/parks_outdoors/default_",
+                "suffix": ".png"
+              },
+              "primary": true
+            }],
+            "photos": {
+              "count": 0,
+              "groups": []
+            }
+          },
+          "referralId": "e-0-554cdc3f498e53034f7d99c2-5"
+        },
+        {
+          "reasons": {
+            "count": 0,
+            "items": [{
+              "summary": "This spot is popular",
+              "type": "general",
+              "reasonName": "globalInteractionReason"
+            }]
+          },
+          "venue": {
+            "id": "57f4c242498e8ee0a6c3b665",
+            "name": "Dafineh Traditional Café | سرای سنتی دفینه",
+            "location": {
+              "address": "تهران-دروازه شمیران-نبش خیابان روشندلان",
+              "crossStreet": "روشندلان",
+              "lat": 35.69912,
+              "lng": 51.436996,
+              "labeledLatLngs": [{
+                "label": "display",
+                "lat": 35.69912,
+                "lng": 51.436996
+              }],
+              "distance": 823,
+              "postalCode": "19166",
+              "cc": "IR",
+              "neighborhood": "District 12",
+              "city": "Tehran",
+              "state": "Tehran Province",
+              "country": "Iran",
+              "formattedAddress": [
+                "تهران-دروازه شمیران-نبش خیابان روشندلان (روشندلان)",
+                "Tehran, Tehran Province 19166",
+                "Iran"
+              ]
+            },
+            "categories": [{
+              "id": "52e81612bcbc57f1066b79f4",
+              "name": "Buffet",
+              "pluralName": "Buffets",
+              "shortName": "Buffet",
+              "icon": {
+                "prefix": "https://ss3.4sqi.net/img/categories_v2/food/default_",
+                "suffix": ".png"
+              },
+              "primary": true
+            }],
+            "photos": {
+              "count": 0,
+              "groups": []
+            }
+          },
+          "referralId": "e-0-57f4c242498e8ee0a6c3b665-6"
+        },
+        {
+          "reasons": {
+            "count": 0,
+            "items": [{
+              "summary": "This spot is popular",
+              "type": "general",
+              "reasonName": "globalInteractionReason"
+            }]
+          },
+          "venue": {
+            "id": "56c5c143cd10809c413033c3",
+            "name": "Good Boy Fast Food | فست فود پسر خوب",
+            "location": {
+              "lat": 35.69801196752093,
+              "lng": 51.44392971888888,
+              "labeledLatLngs": [{
+                "label": "display",
+                "lat": 35.69801196752093,
+                "lng": 51.44392971888888
+              }],
+              "distance": 184,
+              "cc": "IR",
+              "country": "Iran",
+              "formattedAddress": [
+                "Iran"
+              ]
+            },
+            "categories": [{
+              "id": "4bf58dd8d48988d14e941735",
+              "name": "American Restaurant",
+              "pluralName": "American Restaurants",
+              "shortName": "American",
+              "icon": {
+                "prefix": "https://ss3.4sqi.net/img/categories_v2/food/default_",
+                "suffix": ".png"
+              },
+              "primary": true
+            }],
+            "photos": {
+              "count": 0,
+              "groups": []
+            }
+          },
+          "referralId": "e-0-56c5c143cd10809c413033c3-7"
+        },
+        {
+          "reasons": {
+            "count": 0,
+            "items": [{
+              "summary": "This spot is popular",
+              "type": "general",
+              "reasonName": "globalInteractionReason"
+            }]
+          },
+          "venue": {
+            "id": "54284a93498eb1712de6fd37",
+            "name": "چلوکباب تبریزی",
+            "location": {
+              "lat": 35.691921426515584,
+              "lng": 51.44561448021077,
+              "labeledLatLngs": [{
+                "label": "display",
+                "lat": 35.691921426515584,
+                "lng": 51.44561448021077
+              }],
+              "distance": 654,
+              "cc": "IR",
+              "city": "Tehran",
+              "state": "Tehran",
+              "country": "Iran",
+              "formattedAddress": [
+                "Tehran, Tehran",
+                "Iran"
+              ]
+            },
+            "categories": [{
+              "id": "52e81612bcbc57f1066b79f7",
+              "name": "Persian Restaurant",
+              "pluralName": "Persian Restaurants",
+              "shortName": "Persian",
+              "icon": {
+                "prefix": "https://ss3.4sqi.net/img/categories_v2/food/middleeastern_",
+                "suffix": ".png"
+              },
+              "primary": true
+            }],
+            "photos": {
+              "count": 0,
+              "groups": []
+            }
+          },
+          "referralId": "e-0-54284a93498eb1712de6fd37-8"
+        },
+        {
+          "reasons": {
+            "count": 0,
+            "items": [{
+              "summary": "This spot is popular",
+              "type": "general",
+              "reasonName": "globalInteractionReason"
+            }]
+          },
+          "venue": {
+            "id": "5334112e498ec71f6c066aae",
+            "name": "Khayyam Park | پارک خیام",
+            "location": {
+              "lat": 35.69487234331245,
+              "lng": 51.44925022479002,
+              "labeledLatLngs": [{
+                "label": "display",
+                "lat": 35.69487234331245,
+                "lng": 51.44925022479002
+              }],
+              "distance": 441,
+              "cc": "IR",
+              "city": "Tehran",
+              "state": "Tehran",
+              "country": "Iran",
+              "formattedAddress": [
+                "Tehran, Tehran",
+                "Iran"
+              ]
+            },
+            "categories": [{
+              "id": "4bf58dd8d48988d163941735",
+              "name": "Park",
+              "pluralName": "Parks",
+              "shortName": "Park",
+              "icon": {
+                "prefix": "https://ss3.4sqi.net/img/categories_v2/parks_outdoors/park_",
+                "suffix": ".png"
+              },
+              "primary": true
+            }],
+            "photos": {
+              "count": 0,
+              "groups": []
+            }
+          },
+          "referralId": "e-0-5334112e498ec71f6c066aae-9"
+        },
+        {
+          "reasons": {
+            "count": 0,
+            "items": [{
+              "summary": "This spot is popular",
+              "type": "general",
+              "reasonName": "globalInteractionReason"
+            }]
+          },
+          "venue": {
+            "id": "5821a022299de73c2a03c7f7",
+            "name": "Ghaem Shopping Center | پاساژ قائم",
+            "location": {
+              "lat": 35.70019,
+              "lng": 51.438656,
+              "labeledLatLngs": [{
+                "label": "display",
+                "lat": 35.70019,
+                "lng": 51.438656
+              }],
+              "distance": 711,
+              "cc": "IR",
+              "city": "Tehran",
+              "state": "Tehran Province",
+              "country": "Iran",
+              "formattedAddress": [
+                "Tehran, Tehran Province",
+                "Iran"
+              ]
+            },
+            "categories": [{
+              "id": "5744ccdfe4b0c0459246b4dc",
+              "name": "Shopping Plaza",
+              "pluralName": "Shopping Plazas",
+              "shortName": "Shopping Plaza",
+              "icon": {
+                "prefix": "https://ss3.4sqi.net/img/categories_v2/shops/mall_",
+                "suffix": ".png"
+              },
+              "primary": true
+            }],
+            "photos": {
+              "count": 0,
+              "groups": []
+            }
+          },
+          "referralId": "e-0-5821a022299de73c2a03c7f7-10"
+        },
+        {
+          "reasons": {
+            "count": 0,
+            "items": [{
+              "summary": "This spot is popular",
+              "type": "general",
+              "reasonName": "globalInteractionReason"
+            }]
+          },
+          "venue": {
+            "id": "52466b5011d214ad08b16eef",
+            "name": "کوچه شهرستانی",
+            "location": {
+              "lat": 35.702106717806366,
+              "lng": 51.45231062915773,
+              "labeledLatLngs": [{
+                "label": "display",
+                "lat": 35.702106717806366,
+                "lng": 51.45231062915773
+              }],
+              "distance": 748,
+              "cc": "IR",
+              "city": "Tehran",
+              "state": "Tehran",
+              "country": "Iran",
+              "formattedAddress": [
+                "Tehran, Tehran",
+                "Iran"
+              ]
+            },
+            "categories": [{
+              "id": "4bf58dd8d48988d1fa941735",
+              "name": "Farmers Market",
+              "pluralName": "Farmers Markets",
+              "shortName": "Farmer's Market",
+              "icon": {
+                "prefix": "https://ss3.4sqi.net/img/categories_v2/shops/food_farmersmarket_",
+                "suffix": ".png"
+              },
+              "primary": true
+            }],
+            "photos": {
+              "count": 0,
+              "groups": []
+            }
+          },
+          "referralId": "e-0-52466b5011d214ad08b16eef-11"
+        },
+        {
+          "reasons": {
+            "count": 0,
+            "items": [{
+              "summary": "This spot is popular",
+              "type": "general",
+              "reasonName": "globalInteractionReason"
+            }]
+          },
+          "venue": {
+            "id": "52466ca4498e10e0d77e6172",
+            "name": "Montazeri BRT Station | ایستگاه بی\u200cآرتی منتظری",
+            "location": {
+              "lat": 35.70211176331686,
+              "lng": 51.452332303772806,
+              "labeledLatLngs": [{
+                "label": "display",
+                "lat": 35.70211176331686,
+                "lng": 51.452332303772806
+              }],
+              "distance": 750,
+              "cc": "IR",
+              "city": "Tehran",
+              "state": "Tehran",
+              "country": "Iran",
+              "formattedAddress": [
+                "Tehran, Tehran",
+                "Iran"
+              ]
+            },
+            "categories": [{
+              "id": "4bf58dd8d48988d1fe931735",
+              "name": "Bus Station",
+              "pluralName": "Bus Stations",
+              "shortName": "Bus Station",
+              "icon": {
+                "prefix": "https://ss3.4sqi.net/img/categories_v2/travel/busstation_",
+                "suffix": ".png"
+              },
+              "primary": true
+            }],
+            "photos": {
+              "count": 0,
+              "groups": []
+            }
+          },
+          "referralId": "e-0-52466ca4498e10e0d77e6172-12"
+        },
+        {
+          "reasons": {
+            "count": 0,
+            "items": [{
+              "summary": "This spot is popular",
+              "type": "general",
+              "reasonName": "globalInteractionReason"
+            }]
+          },
+          "venue": {
+            "id": "52a1ad0d11d26ad5ee5c1016",
+            "name": "كبابي گلپايگاني",
+            "location": {
+              "address": "پل چوبي",
+              "lat": 35.70140029807813,
+              "lng": 51.43833846635778,
+              "labeledLatLngs": [{
+                "label": "display",
+                "lat": 35.70140029807813,
+                "lng": 51.43833846635778
+              }],
+              "distance": 796,
+              "cc": "IR",
+              "city": "Tehran",
+              "state": "Tehran",
+              "country": "Iran",
+              "formattedAddress": [
+                "پل چوبي",
+                "Tehran, Tehran",
+                "Iran"
+              ]
+            },
+            "categories": [{
+              "id": "4bf58dd8d48988d1c4941735",
+              "name": "Restaurant",
+              "pluralName": "Restaurants",
+              "shortName": "Restaurant",
+              "icon": {
+                "prefix": "https://ss3.4sqi.net/img/categories_v2/food/default_",
+                "suffix": ".png"
+              },
+              "primary": true
+            }],
+            "photos": {
+              "count": 0,
+              "groups": []
+            }
+          },
+          "referralId": "e-0-52a1ad0d11d26ad5ee5c1016-13"
+        },
+        {
+          "reasons": {
+            "count": 0,
+            "items": [{
+              "summary": "This spot is popular",
+              "type": "general",
+              "reasonName": "globalInteractionReason"
+            }]
+          },
+          "venue": {
+            "id": "50c0bdb939505befa984c1ea",
+            "name": "Darvazeh Shemiran Metro Station (ایستگاه مترو دروازه شمیران)",
+            "location": {
+              "address": "Ebn-e Sina Sq.",
+              "crossStreet": "Baharestan St.",
+              "lat": 35.699255019193096,
+              "lng": 51.43728286027908,
+              "labeledLatLngs": [{
+                "label": "display",
+                "lat": 35.699255019193096,
+                "lng": 51.43728286027908
+              }],
+              "distance": 800,
+              "cc": "IR",
+              "city": "Tehran",
+              "state": "Tehran",
+              "country": "Iran",
+              "formattedAddress": [
+                "Ebn-e Sina Sq. (Baharestan St.)",
+                "Tehran, Tehran",
+                "Iran"
+              ]
+            },
+            "categories": [{
+              "id": "4bf58dd8d48988d1fd931735",
+              "name": "Metro Station",
+              "pluralName": "Metro Stations",
+              "shortName": "Metro",
+              "icon": {
+                "prefix": "https://ss3.4sqi.net/img/categories_v2/travel/subway_",
+                "suffix": ".png"
+              },
+              "primary": true
+            }],
+            "photos": {
+              "count": 0,
+              "groups": []
+            }
+          },
+          "referralId": "e-0-50c0bdb939505befa984c1ea-14"
+        },
+        {
+          "reasons": {
+            "count": 0,
+            "items": [{
+              "summary": "This spot is popular",
+              "type": "general",
+              "reasonName": "globalInteractionReason"
+            }]
+          },
+          "venue": {
+            "id": "50c0c0d3011c5605d9c45acf",
+            "name": "Shohada Metro Station (ایستگاه مترو میدان شهدا)",
+            "location": {
+              "address": "Shohada Sq.",
+              "lat": 35.69001675249296,
+              "lng": 51.44742192359352,
+              "labeledLatLngs": [{
+                "label": "display",
+                "lat": 35.69001675249296,
+                "lng": 51.44742192359352
+              }],
+              "distance": 876,
+              "cc": "IR",
+              "city": "Tehran",
+              "state": "Tehran",
+              "country": "Iran",
+              "formattedAddress": [
+                "Shohada Sq.",
+                "Tehran, Tehran",
+                "Iran"
+              ]
+            },
+            "categories": [{
+              "id": "4bf58dd8d48988d1fd931735",
+              "name": "Metro Station",
+              "pluralName": "Metro Stations",
+              "shortName": "Metro",
+              "icon": {
+                "prefix": "https://ss3.4sqi.net/img/categories_v2/travel/subway_",
+                "suffix": ".png"
+              },
+              "primary": true
+            }],
+            "photos": {
+              "count": 0,
+              "groups": []
+            }
+          },
+          "referralId": "e-0-50c0c0d3011c5605d9c45acf-15"
+        },
+        {
+          "reasons": {
+            "count": 0,
+            "items": [{
+              "summary": "This spot is popular",
+              "type": "general",
+              "reasonName": "globalInteractionReason"
+            }]
+          },
+          "venue": {
+            "id": "57a86a26cd10b3ef23c34814",
+            "name": "نارنج و ترنج",
+            "location": {
+              "lat": 35.697609,
+              "lng": 51.436042,
+              "labeledLatLngs": [{
+                "label": "display",
+                "lat": 35.697609,
+                "lng": 51.436042
+              }],
+              "distance": 896,
+              "cc": "IR",
+              "country": "Iran",
+              "formattedAddress": [
+                "Iran"
+              ]
+            },
+            "categories": [{
+              "id": "4bf58dd8d48988d1c9941735",
+              "name": "Ice Cream Shop",
+              "pluralName": "Ice Cream Shops",
+              "shortName": "Ice Cream",
+              "icon": {
+                "prefix": "https://ss3.4sqi.net/img/categories_v2/food/icecream_",
+                "suffix": ".png"
+              },
+              "primary": true
+            }],
+            "photos": {
+              "count": 0,
+              "groups": []
+            }
+          },
+          "referralId": "e-0-57a86a26cd10b3ef23c34814-16"
+        },
+        {
+          "reasons": {
+            "count": 0,
+            "items": [{
+              "summary": "This spot is popular",
+              "type": "general",
+              "reasonName": "globalInteractionReason"
+            }]
+          },
+          "venue": {
+            "id": "5859087f6ad73d021817aed0",
+            "name": "Choopy Fast Food",
+            "location": {
+              "address": "Hosseini alley",
+              "crossStreet": "Sepah St.",
+              "lat": 35.704202,
+              "lng": 51.439531,
+              "labeledLatLngs": [{
+                "label": "display",
+                "lat": 35.704202,
+                "lng": 51.439531
+              }],
+              "distance": 919,
+              "cc": "IR",
+              "city": "Tehran",
+              "state": "Tehran",
+              "country": "Iran",
+              "formattedAddress": [
+                "Hosseini alley (Sepah St.)",
+                "Tehran, Tehran",
+                "Iran"
+              ]
+            },
+            "categories": [{
+              "id": "4bf58dd8d48988d16e941735",
+              "name": "Fast Food Restaurant",
+              "pluralName": "Fast Food Restaurants",
+              "shortName": "Fast Food",
+              "icon": {
+                "prefix": "https://ss3.4sqi.net/img/categories_v2/food/fastfood_",
+                "suffix": ".png"
+              },
+              "primary": true
+            }],
+            "photos": {
+              "count": 0,
+              "groups": []
+            }
+          },
+          "referralId": "e-0-5859087f6ad73d021817aed0-17"
+        }
+      ]
+    }]
+  }
+}
