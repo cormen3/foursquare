@@ -7,7 +7,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.os.bundleOf
-import androidx.navigation.Navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.common.extensions.orFalse
@@ -145,7 +144,7 @@ class VenuesFragment : BaseFragment(), OnLocationCallback {
     private fun observeActions(action: BaseAction) {
         when(action){
             is VenueAction -> {
-                val bundle = bundleOf(VENUE_ID to action.data.id)
+                val bundle = bundleOf(KEY_VENUE_ID to action.data.id)
                 findNavController().navigate(R.id.venueDetailsFragment, bundle)
             }
         }
@@ -153,6 +152,6 @@ class VenuesFragment : BaseFragment(), OnLocationCallback {
 
     companion object {
         var KEY_RECYCLER_STATE = "KEY_RECYCLER_STATE"
-        var VENUE_ID = "VENUE_ID"
+        var KEY_VENUE_ID = "KEY_VENUE_ID"
     }
 }

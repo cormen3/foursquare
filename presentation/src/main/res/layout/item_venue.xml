@@ -28,10 +28,10 @@
         android:id="@+id/itemVenueIcon"
         android:layout_width="32dp"
         android:layout_height="32dp"
-        android:layout_marginStart="?listPreferredItemPaddingStart"
         android:contentDescription="@null"
-        android:src="@drawable/ic_android"
-        app:layout_constraintStart_toStartOf="parent"
+        android:src="@drawable/ic_pin_drop"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="@+id/itemVenueGuidelineStart"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.appcompat.widget.AppCompatTextView

@@ -1,9 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/activity_login"
-    android:background="#0000ff"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/dark_dark_gray">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/venueDetailsBackdropImage"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:alpha="0.6"
+        android:fitsSystemWindows="true"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatCheckBox
+        android:id="@+id/venueDetailsAddToFavourite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:layout_marginEnd="6dp"
+        android:layout_marginBottom="6dp"
+        android:background="@drawable/like_icon"
+        android:button="@null"
+        android:checked="false"
+        android:clickable="true"
+        android:focusable="true"
+        android:stateListAnimator="@animator/scale"
+        app:layout_constraintBottom_toBottomOf="@+id/venueDetailsBackdropImage"
+        app:layout_constraintRight_toRightOf="@+id/venueDetailsBackdropImage" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/venueDetailsTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="15dp"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:singleLine="true"
+        android:textColor="@color/white"
+        android:textSize="27sp"
+        android:textStyle="bold"
+        tools:text="Azadi square"
+        app:layout_constraintTop_toBottomOf="@+id/venueDetailsBackdropImage"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/venueDetailsRank"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        app:layout_constraintTop_toBottomOf="@+id/venueDetailsTitle"
+        tools:text="Release Date :" />
+
+    <androidx.appcompat.widget.AppCompatRatingBar
+        android:id="@+id/movieDetailsStar"
+        style="?android:attr/ratingBarStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="8dp"
+        android:progressBackgroundTint="@color/dark_gray_night"
+        android:progressTint="@color/white"
+        app:layout_constraintLeft_toLeftOf="@+id/venueDetailsRank"
+        app:layout_constraintRight_toRightOf="@+id/venueDetailsRank"
+        app:layout_constraintTop_toBottomOf="@+id/venueDetailsRank" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

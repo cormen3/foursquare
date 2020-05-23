@@ -1,11 +1,7 @@
 package com.example.data.repository
 
-import com.example.data.dto.VenuesDto
+import com.example.data.dto.*
 import com.example.data.local.VenueEntity
-import com.example.data.dto.CategoryDto
-import com.example.data.dto.IconDto
-import com.example.data.dto.PriceDto
-import com.example.data.dto.VenueInfoDto
 import com.example.domain.entity.venue.*
 
 fun VenuesDto.toVenuesObject() = VenuesObject(
@@ -23,7 +19,8 @@ fun VenueInfoDto.toVenueInfoObject() = VenueInfoObject(
     categories?.map { it.toCategoryObject() },
     rating,
     ratingColor,
-    priceDto?.toPriceObject()
+    priceDto?.toPriceObject(),
+    photos?.toPhotosObject()
 )
 
 fun CategoryDto.toCategoryObject() = CategoryObject(
@@ -44,4 +41,20 @@ fun PriceDto.toPriceObject() = PriceObject(
     tier,
     message,
     currency
+)
+
+fun PhotosDto.toPhotosObject() = PhotosObject(
+    count,
+    groups?.map { it.toGroupsObject() }
+)
+
+fun PhotoGroupDto.toGroupsObject() = PhotoGroupObject(
+    count,
+    items?.map { it.toPhotoObject() }
+)
+
+private fun PhotoDto.toPhotoObject() = PhotoObject(
+    prefix,
+    suffix,
+    width
 )

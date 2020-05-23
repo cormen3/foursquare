@@ -10,5 +10,6 @@ class VenueInfoDto (
     @SerializedName("categories") val categories: List<CategoryDto>?,
     @SerializedName("rating") val rating : Float?,
     @SerializedName("ratingColor") val ratingColor: String?,
-    @SerializedName("price") val priceDto: PriceDto?
+    @SerializedName("price") val priceDto: PriceDto?,
+    @SerializedName("photos") val photos: PhotosDto?
 )
