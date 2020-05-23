@@ -1,6 +1,8 @@
 package com.example.data.entity.model.remote
 
+import com.google.gson.annotations.SerializedName
+
 class VenueDetailsResponse(
-    val metaData: Meta?,
-    val response: VenueInfoResponse?
+    @SerializedName("metaData") val metaData: Meta?,
+    @SerializedName("response") val response: VenueInfoResponse?
 )

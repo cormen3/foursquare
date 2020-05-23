@@ -1,6 +1,8 @@
 package com.example.data.entity.model.remote
 
+import com.google.gson.annotations.SerializedName
+
 class Meta(
-    val code: Int,
-    val requestId: String
+    @SerializedName("code") val code: Int,
+    @SerializedName("requestId") val requestId: String
 )

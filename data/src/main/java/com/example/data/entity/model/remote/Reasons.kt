@@ -1,5 +1,7 @@
 package com.example.data.entity.model.remote
 
+import com.google.gson.annotations.SerializedName
+
 data class Reasons(
-    val count: Int?
+    @SerializedName("count") val count: Int?
 )

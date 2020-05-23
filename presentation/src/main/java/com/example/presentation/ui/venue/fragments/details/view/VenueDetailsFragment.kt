@@ -41,6 +41,6 @@ class VenueDetailsFragment : BaseFragment() {
         }
     }
 
-    private fun updateInfo(movieInfoObject: VenueInfoObject?) {
+    private fun updateInfo(venueInfoObject: VenueInfoObject?) {
     }
 }

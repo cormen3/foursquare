@@ -1,6 +1,8 @@
 package com.example.data.entity.model.remote
 
+import com.google.gson.annotations.SerializedName
+
 data class Icon(
-    val prefix: String?,
-    val suffix: String?
+    @SerializedName("prefix") val prefix: String?,
+    @SerializedName("suffix") val suffix: String?
 )
