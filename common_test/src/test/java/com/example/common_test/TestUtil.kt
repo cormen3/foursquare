@@ -20,7 +20,7 @@ object TestUtil {
     fun error(): ErrorThrowable = ErrorThrowable(ErrorCode.ERROR_HAPPENED)
 
     fun fakeVenues(): Venues? {
-        return Venues(0, venuesResponse()?.response?.groups?.get(0)?.items
+        return Venues(0, venuesResponse()?.response?.groupObjects?.get(0)?.items
             ?.map { venueItem ->
                 venueItem.toVenueEntity()
             } as MutableList<VenueEntity>)

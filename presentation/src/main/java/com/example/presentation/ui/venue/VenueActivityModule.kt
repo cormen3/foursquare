@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModel
 import com.example.presentation.base.BaseActivityModule
 import com.example.presentation.common.di.ViewModelKey
+import com.example.presentation.ui.venue.fragments.details.view.VenueDetailsFragment
+import com.example.presentation.ui.venue.fragments.details.view.VenueDetailsFragmentModule
 import com.example.presentation.ui.venue.fragments.list.view.VenuesFragment
 import com.example.presentation.ui.venue.fragments.list.view.VenuesFragmentModule
 import dagger.Binds
@@ -23,6 +25,9 @@ abstract class VenueActivityModule {
 
     @ContributesAndroidInjector(modules = [VenuesFragmentModule::class])
     abstract fun venueFragmentInjector(): VenuesFragment
+
+    @ContributesAndroidInjector(modules = [VenueDetailsFragmentModule::class])
+    abstract fun detailsFragmentInjector(): VenueDetailsFragment
 
     @Binds
     @IntoMap

@@ -16,7 +16,7 @@ import org.mockito.junit.MockitoJUnitRunner
 
 
 @RunWith(MockitoJUnitRunner::class)
-class VenueDataSourceImplUnitTest {
+class VenueDataObjectSourceImplUnitTest {
 
     @get:Rule // used to make all live data calls sync
     val instantExecutor = InstantTaskExecutorRule()

@@ -2,7 +2,8 @@ package com.example.domain.entity.venue
 
 import com.example.domain.entity.DomainObject
 
-data class VenueObject(
-    var name: String = "",
-    val location: Location
+open class VenueObject(
+    open var id: String?,
+    open var name: String?,
+    open val location: Location?
 ) : DomainObject

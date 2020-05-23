@@ -2,12 +2,13 @@ package com.example.data.datasource
 
 import android.location.Location
 import com.example.data.entity.model.local.VenueEntity
-import com.example.domain.entity.venue.VenueItem
+import com.example.data.entity.model.remote.VenueItem
 
 fun VenueItem.toVenueEntity() = VenueEntity(
     0,
-    this.venue.name,
-    this.venue.location
+    this.venue?.id,
+    this.venue?.name,
+    this.venue?.location
 )
 
 fun Location?.toCoordinates(): String =

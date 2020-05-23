@@ -8,6 +8,17 @@
         android:id="@+id/venueFragment"
         android:name="com.example.presentation.ui.venue.fragments.list.view.VenuesFragment"
         android:label="VenueFragment">
+        <action
+            android:id="@+id/action_venueFragment_to_venueDetailsFragment"
+            app:destination="@id/venueDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/venueDetailsFragment"
+        android:name="com.example.presentation.ui.venue.fragments.details.view.VenueDetailsFragment"
+        android:label="VenueDetailsFragment" >
+        <argument
+            android:name="venueId"
+            app:argType="string" />
     </fragment>
 
 </navigation>

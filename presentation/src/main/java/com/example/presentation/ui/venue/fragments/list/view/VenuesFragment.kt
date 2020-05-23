@@ -6,6 +6,9 @@ import android.os.Parcelable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
+import androidx.navigation.Navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.common.extensions.orFalse
 import com.example.common.extensions.safeLet
@@ -19,6 +22,7 @@ import com.example.presentation.common.extension.*
 import com.example.presentation.common.location.LocationManager
 import com.example.presentation.common.location.OnLocationCallback
 import com.example.presentation.ui.venue.VenueSharedViewModel
+import com.example.presentation.ui.venue.fragments.list.view.adapter.VenueAction
 import com.example.presentation.ui.venue.fragments.list.view.adapter.VenuesAdapter
 import com.example.presentation.ui.venue.fragments.list.viewmodel.VenuesViewModel
 import kotlinx.android.synthetic.main.error_layout.*
@@ -139,9 +143,16 @@ class VenuesFragment : BaseFragment(), OnLocationCallback {
     }
 
     private fun observeActions(action: BaseAction) {
+        when(action){
+            is VenueAction -> {
+                val bundle = bundleOf(VENUE_ID to action.data.id)
+                findNavController().navigate(R.id.venueDetailsFragment, bundle)
+            }
+        }
     }
 
     companion object {
         var KEY_RECYCLER_STATE = "KEY_RECYCLER_STATE"
+        var VENUE_ID = "VENUE_ID"
     }
 }

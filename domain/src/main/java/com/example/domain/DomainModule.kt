@@ -1,5 +1,6 @@
 package com.example.domain
 
+import com.example.domain.entity.venue.VenueInfoObject
 import com.example.domain.entity.venue.VenueObject
 import com.example.domain.entity.venue.VenuesObject
 import com.example.domain.transformer.*
@@ -18,6 +19,11 @@ abstract class DomainModule {
     abstract fun intSTransformer(
         transformer: AsyncSTransformer<Boolean>
     ): STransformer<Boolean>
+
+    @Binds
+    abstract fun venueInfoSTransformer(
+        transformer: AsyncSTransformer<VenueInfoObject>
+    ): STransformer<VenueInfoObject>
 
     @Binds
     abstract fun venuesTransformer(

@@ -1,8 +1,10 @@
 package com.example.data.datasource
 
+import com.example.common.extensions.orZero
 import com.example.common.preferences.PreferencesHelper
 import com.example.data.entity.VenuesDao
 import com.example.data.entity.model.dto.Venues
+import com.example.data.entity.model.remote.VenueDetailsResponse
 import com.example.data.extension.onError
 import com.example.data.network.VenueDataService
 import io.reactivex.Flowable
@@ -31,11 +33,11 @@ class VenueDataSourceImpl @Inject constructor(
                     venuesDao.clearAll()
             }
             .map {
-                totalCount = it.response.totalResults
-                val venueList = it.response.groups[0].items.map { venueItem ->
+                totalCount = it.response.totalResults.orZero()
+                val venueList = it.response.groups?.get(0)?.items?.map { venueItem ->
                     venueItem.toVenueEntity()
                 }
-                venuesDao.insertAll(*venueList.toTypedArray())
+                venueList?.toTypedArray()?.let { it1 -> venuesDao.insertAll(*it1) }
                 preferencesHelper.hasRequested = true
                 this.page += 1
                 true
@@ -58,4 +60,7 @@ class VenueDataSourceImpl @Inject constructor(
         }
             .onError()
     }
+
+    override fun getVenueDetails(movieId: String): Single<VenueDetailsResponse> =
+        api.getVenueDetails(movieId)
 }
