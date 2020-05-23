@@ -1,14 +1,14 @@
 package com.example.data.repository
 
-import com.example.data.entity.model.dto.Venues
-import com.example.data.entity.model.local.VenueEntity
-import com.example.data.entity.model.remote.Category
-import com.example.data.entity.model.remote.Icon
-import com.example.data.entity.model.remote.Price
-import com.example.data.entity.model.remote.VenueInfo
+import com.example.data.dto.VenuesDto
+import com.example.data.local.VenueEntity
+import com.example.data.dto.CategoryDto
+import com.example.data.dto.IconDto
+import com.example.data.dto.PriceDto
+import com.example.data.dto.VenueInfoDto
 import com.example.domain.entity.venue.*
 
-fun Venues.toVenuesObject() = VenuesObject(
+fun VenuesDto.toVenuesObject() = VenuesObject(
     totalCount, Venues.map { it.toVenueObject() }.toMutableList()
 )
 
@@ -16,31 +16,31 @@ fun VenueEntity.toVenueObject() = VenueObject(
     venueId, name, location
 )
 
-fun VenueInfo.toVenueInfoObject() = VenueInfoObject(
+fun VenueInfoDto.toVenueInfoObject() = VenueInfoObject(
     id,
     name,
     location,
     categories?.map { it.toCategoryObject() },
     rating,
     ratingColor,
-    price?.toPriceObject()
+    priceDto?.toPriceObject()
 )
 
-fun Category.toCategoryObject() = CategoryObject(
+fun CategoryDto.toCategoryObject() = CategoryObject(
     id,
     name,
     pluralName,
     shortName,
-    icon?.toIconObject(),
+    iconDto?.toIconObject(),
     primary
 )
 
-fun Icon.toIconObject() = IconObject(
+fun IconDto.toIconObject() = IconObject(
     prefix,
     suffix
 )
 
-fun Price.toPriceObject() = PriceObject(
+fun PriceDto.toPriceObject() = PriceObject(
     tier,
     message,
     currency

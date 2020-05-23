@@ -2,9 +2,9 @@ package com.example.data.datasource
 
 import com.example.common.extensions.orZero
 import com.example.common.preferences.PreferencesHelper
-import com.example.data.entity.VenuesDao
-import com.example.data.entity.model.dto.Venues
-import com.example.data.entity.model.remote.VenueDetailsResponse
+import com.example.data.local.VenuesDao
+import com.example.data.dto.VenuesDto
+import com.example.data.dto.VenueDetailsDto
 import com.example.data.extension.onError
 import com.example.data.network.VenueDataService
 import io.reactivex.Flowable
@@ -52,15 +52,15 @@ class VenueDataSourceImpl @Inject constructor(
         return queries
     }
 
-    override fun loadLocations(): Flowable<Venues> {
+    override fun loadLocations(): Flowable<VenuesDto> {
         return venuesDao.allVenues().map {
             it.toMutableList()
         }.map {
-            Venues(totalCount, it)
+            VenuesDto(totalCount, it)
         }
             .onError()
     }
 
-    override fun getVenueDetails(movieId: String): Single<VenueDetailsResponse> =
+    override fun getVenueDetails(movieId: String): Single<VenueDetailsDto> =
         api.getVenueDetails(movieId)
 }

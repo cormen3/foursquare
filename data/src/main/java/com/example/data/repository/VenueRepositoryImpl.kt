@@ -19,5 +19,5 @@ class VenueRepositoryImpl @Inject constructor(
         dataSource.loadLocations().map { it.toVenuesObject() }
 
     override fun getVenueDetails(venueId: String): Single<VenueInfoObject> =
-        dataSource.getVenueDetails(venueId).map { it.response?.venue?.toVenueInfoObject() }
+        dataSource.getVenueDetails(venueId).map { it.response?.venueDto?.toVenueInfoObject() }
 }
