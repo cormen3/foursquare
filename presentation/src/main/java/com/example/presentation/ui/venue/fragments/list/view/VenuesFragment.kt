@@ -17,7 +17,10 @@ import com.example.domain.entity.PermissionResultObject
 import com.example.presentation.R
 import com.example.presentation.base.BaseFragment
 import com.example.presentation.base.adapter.BaseAction
-import com.example.presentation.common.extension.*
+import com.example.presentation.common.extension.gone
+import com.example.presentation.common.extension.goneOrVisible
+import com.example.presentation.common.extension.observe
+import com.example.presentation.common.extension.viewModelProvider
 import com.example.presentation.common.location.LocationManager
 import com.example.presentation.common.location.OnLocationCallback
 import com.example.presentation.ui.venue.VenueSharedViewModel
@@ -141,8 +144,12 @@ class VenuesFragment : BaseFragment(), OnLocationCallback {
         viewModel.getData()
     }
 
+    override fun onStateChanged(isRunning: Boolean) {
+        handleLoading(isRunning)
+    }
+
     private fun observeActions(action: BaseAction) {
-        when(action){
+        when (action) {
             is VenueAction -> {
                 val bundle = bundleOf(KEY_VENUE_ID to action.data.id)
                 findNavController().navigate(R.id.venueDetailsFragment, bundle)

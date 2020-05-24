@@ -94,6 +94,7 @@ class LocationManager @Inject constructor(
 
     private fun handleNewUpdate(location: Location?) {
         val lastLoc = preferencesHelper.lastLocation
+        callback.onStateChanged(false)
         location?.let { newLocation ->
             lastLoc?.takeIf {
                 Location(newLocation).distanceTo(it) > SMALLEST_DISPLACEMENT || !preferencesHelper.hasRequested.orFalse()
@@ -153,6 +154,7 @@ class LocationManager @Inject constructor(
     private fun startLocationUpdates() {
         settingsClient.checkLocationSettings(locationSettingsRequest)
             .addOnSuccessListener {
+                callback.onStateChanged(true)
                 fusedLocationClient.requestLocationUpdates(
                     locationRequest,
                     locationCallback,
