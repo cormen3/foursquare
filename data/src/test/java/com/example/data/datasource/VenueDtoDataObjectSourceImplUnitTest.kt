@@ -3,15 +3,19 @@ package com.example.data.datasource
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.example.common.error.ErrorThrowable
 import com.example.common.preferences.PreferencesHelper
+import com.example.common_test.TestUtil
 import com.example.common_test.mock
 import com.example.data.local.VenuesDao
 import com.example.data.network.VenueDataService
+import com.nhaarman.mockitokotlin2.doReturn
 import com.nhaarman.mockitokotlin2.spy
-import org.junit.Assert
+import com.nhaarman.mockitokotlin2.whenever
+import io.reactivex.Single
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
+import org.mockito.ArgumentMatchers.*
 import org.mockito.junit.MockitoJUnitRunner
 
 
@@ -23,32 +27,55 @@ class VenueDtoDataObjectSourceImplUnitTest {
 
     private val preferencesHelper: PreferencesHelper = mock()
     private val venuesDao: VenuesDao = mock()
-    private val api: VenueDataService = FakeVenueApi()
-    private val failedApi: VenueDataService = FailedVenueApi()
+    private val api: VenueDataService = mock()
 
     private lateinit var dataSource: VenueDataSourceImpl
-    private lateinit var dataSourceFail: VenueDataSourceImpl
 
     @Before
     fun setup() {
         this.dataSource = spy(VenueDataSourceImpl(api, venuesDao, preferencesHelper))
-        this.dataSourceFail = spy(VenueDataSourceImpl(failedApi, venuesDao, preferencesHelper))
     }
 
     @Test
     fun `get venues onSuccess`() {
+        doReturn(Single.just(TestUtil.venuesResponse())).whenever(api)
+            .exploreVenues(anyMap(), anyLong())
+
         dataSource.exploreVenues(true)
             .test()
-            .assertValue(true)
+            .assertNoErrors()
+            .assertComplete()
     }
 
     @Test
     fun `get venues onError`() {
-        try {
-            dataSourceFail.exploreVenues(true)
-            Assert.fail("Should have thrown ErrorThrowable")
-        } catch (e: ErrorThrowable) {
-        }
-        return
+        doReturn(Single.error<ErrorThrowable>(TestUtil.error())).whenever(api)
+            .exploreVenues(anyMap(), anyLong())
+
+        dataSource.exploreVenues(true)
+            .test()
+            .assertNotComplete()
     }
+
+    @Test
+    fun `get venue details onSuccess`() {
+        doReturn(Single.just(TestUtil.venueDetailsResponse())).whenever(api)
+            .getVenueDetails(anyString())
+
+        dataSource.getVenueDetails(anyString())
+            .test()
+            .assertNoErrors()
+            .assertComplete()
+    }
+
+    @Test
+    fun `get venue details onError`() {
+        doReturn(Single.error<ErrorThrowable>(TestUtil.error())).whenever(api)
+            .getVenueDetails(anyString())
+
+        dataSource.getVenueDetails(anyString())
+            .test()
+            .assertComplete()
+    }
+
 }

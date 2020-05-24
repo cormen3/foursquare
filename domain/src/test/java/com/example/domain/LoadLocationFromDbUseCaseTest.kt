@@ -47,5 +47,4 @@ class LoadLocationFromDbUseCaseTest {
 
         verify(repository).loadLocations()
     }
-
 }

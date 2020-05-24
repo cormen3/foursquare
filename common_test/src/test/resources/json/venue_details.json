@@ -1,0 +1,224 @@
+{
+  "meta": {
+    "code": 200,
+    "requestId": "5ec9e90b9da7ee001ba4912e"
+  },
+  "response": {
+    "venue": {
+      "id": "53ad9fcc498eb839dee3a023",
+      "name": "Shahid Fakouri Etka Department Store (فروشگاه اتکا شهید فکوری)",
+      "contact": {},
+      "location": {
+        "lat": 35.69088640094079,
+        "lng": 51.452387636301346,
+        "labeledLatLngs": [
+          {
+            "label": "display",
+            "lat": 35.69088640094079,
+            "lng": 51.452387636301346
+          }
+        ],
+        "cc": "IR",
+        "city": "Tehran",
+        "state": "Tehran",
+        "country": "Iran",
+        "formattedAddress": [
+          "Tehran, Tehran",
+          "Iran"
+        ]
+      },
+      "canonicalUrl": "https://foursquare.com/v/shahid-fakouri-etka-department-store--%D9%81%D8%B1%D9%88%D8%B4%DA%AF%D8%A7%D9%87-%D8%A7%D8%AA%DA%A9%D8%A7-%D8%B4%D9%87%DB%8C%D8%AF-%D9%81%DA%A9%D9%88%D8%B1%DB%8C/53ad9fcc498eb839dee3a023",
+      "categories": [
+        {
+          "id": "4bf58dd8d48988d1f6941735",
+          "name": "Department Store",
+          "pluralName": "Department Stores",
+          "shortName": "Department Store",
+          "icon": {
+            "prefix": "https://ss3.4sqi.net/img/categories_v2/shops/departmentstore_",
+            "suffix": ".png"
+          },
+          "primary": true
+        }
+      ],
+      "verified": false,
+      "stats": {
+        "tipCount": 2
+      },
+      "likes": {
+        "count": 15,
+        "groups": [
+          {
+            "type": "others",
+            "count": 15,
+            "items": []
+          }
+        ],
+        "summary": "15 Likes"
+      },
+      "dislike": false,
+      "ok": false,
+      "rating": 6.8,
+      "ratingColor": "FFC800",
+      "ratingSignals": 22,
+      "allowMenuUrlEdit": true,
+      "beenHere": {
+        "count": 0,
+        "unconfirmedCount": 0,
+        "marked": false,
+        "lastCheckinExpiredAt": 0
+      },
+      "specials": {
+        "count": 0,
+        "items": []
+      },
+      "photos": {
+        "count": 26,
+        "groups": [
+          {
+            "type": "venue",
+            "name": "Venue photos",
+            "count": 26,
+            "items": [
+              {
+                "id": "5c5f1d0a38f21600255f8ac6",
+                "createdAt": 1549737226,
+                "source": {
+                  "name": "Foursquare for iOS",
+                  "url": "https://foursquare.com/download/#/iphone"
+                },
+                "prefix": "https://fastly.4sqi.net/img/general/",
+                "suffix": "/92522262_iLvWoWuKXMJgBq3FPmjHq5fU_US_8fqp6mDYH4HBvys.jpg",
+                "width": 1440,
+                "height": 1920,
+                "user": {
+                  "id": "92522262",
+                  "firstName": "Shahla",
+                  "lastName": "J",
+                  "photo": {
+                    "prefix": "https://fastly.4sqi.net/img/user/",
+                    "suffix": "/92522262_CKrAPk-r_Ch0QQlKWlviydh0TQdvUXHIlWy1T3J1bIphf-ajWoai6hvctuSdWzmdH3tj-pmfr.jpg"
+                  }
+                },
+                "visibility": "public"
+              }
+            ]
+          }
+        ]
+      },
+      "reasons": {
+        "count": 0,
+        "items": []
+      },
+      "hereNow": {
+        "count": 0,
+        "summary": "Nobody here",
+        "groups": []
+      },
+      "createdAt": 1403887564,
+      "tips": {
+        "count": 2,
+        "groups": [
+          {
+            "type": "others",
+            "name": "All tips",
+            "count": 2,
+            "items": [
+              {
+                "id": "5bad234c01bc5a002cf947b2",
+                "createdAt": 1538073420,
+                "text": "لاكچرى ترين اتكايى كه تا حالا ديدم😂عين هايپر ميمونه، تنوعش هم بالاست 👌🏻",
+                "type": "user",
+                "canonicalUrl": "https://foursquare.com/item/5bad234c01bc5a002cf947b2",
+                "photo": {
+                  "id": "5bad2354826444002c4e8289",
+                  "createdAt": 1538073428,
+                  "source": {
+                    "name": "Foursquare for iOS",
+                    "url": "https://foursquare.com/download/#/iphone"
+                  },
+                  "prefix": "https://fastly.4sqi.net/img/general/",
+                  "suffix": "/92522262_FZmkcv5wz3wYuzKfghLR8wgL85xkUIJ03r0gE9fS9NY.jpg",
+                  "width": 1440,
+                  "height": 1920,
+                  "visibility": "public"
+                },
+                "photourl": "https://fastly.4sqi.net/img/general/original/92522262_FZmkcv5wz3wYuzKfghLR8wgL85xkUIJ03r0gE9fS9NY.jpg",
+                "lang": "fa",
+                "likes": {
+                  "count": 0,
+                  "groups": []
+                },
+                "logView": true,
+                "agreeCount": 1,
+                "disagreeCount": 0,
+                "todo": {
+                  "count": 0
+                },
+                "user": {
+                  "id": "92522262",
+                  "firstName": "Shahla",
+                  "lastName": "J",
+                  "photo": {
+                    "prefix": "https://fastly.4sqi.net/img/user/",
+                    "suffix": "/92522262_CKrAPk-r_Ch0QQlKWlviydh0TQdvUXHIlWy1T3J1bIphf-ajWoai6hvctuSdWzmdH3tj-pmfr.jpg"
+                  }
+                },
+                "authorInteractionType": "liked"
+              }
+            ]
+          }
+        ]
+      },
+      "shortUrl": "http://4sq.com/1ve7fkL",
+      "timeZone": "Asia/Tehran",
+      "listed": {
+        "count": 0,
+        "groups": [
+          {
+            "type": "others",
+            "name": "Lists from other people",
+            "count": 0,
+            "items": []
+          }
+        ]
+      },
+      "seasonalHours": [],
+      "pageUpdates": {
+        "count": 0,
+        "items": []
+      },
+      "inbox": {
+        "count": 0,
+        "items": []
+      },
+      "attributes": {
+        "groups": []
+      },
+      "bestPhoto": {
+        "id": "5c5f1d0a38f21600255f8ac6",
+        "createdAt": 1549737226,
+        "source": {
+          "name": "Foursquare for iOS",
+          "url": "https://foursquare.com/download/#/iphone"
+        },
+        "prefix": "https://fastly.4sqi.net/img/general/",
+        "suffix": "/92522262_iLvWoWuKXMJgBq3FPmjHq5fU_US_8fqp6mDYH4HBvys.jpg",
+        "width": 1440,
+        "height": 1920,
+        "visibility": "public"
+      },
+      "colors": {
+        "highlightColor": {
+          "photoId": "5c5f1d0a38f21600255f8ac6",
+          "value": -14673896
+        },
+        "highlightTextColor": {
+          "photoId": "5c5f1d0a38f21600255f8ac6",
+          "value": -1
+        },
+        "algoVersion": 3
+      }
+    }
+  }
+}

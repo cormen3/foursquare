@@ -37,7 +37,7 @@ class VenuesViewModel @Inject constructor(
         loadLocationFromDbUseCase.invoke()
             .subscribe({ response ->
                 totalCount = response.totalCount
-                if (response.Venues.size > 0)
+                if (response.Venues.isNotEmpty())
                     _venueItems.value = response.Venues
             }, {})
             .track()

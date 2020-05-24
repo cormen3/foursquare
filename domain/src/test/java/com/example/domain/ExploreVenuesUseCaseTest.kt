@@ -17,7 +17,7 @@ import org.junit.runners.JUnit4
 import org.mockito.ArgumentMatchers.anyBoolean
 
 @RunWith(JUnit4::class)
-class ExploreVenuesDtoUseCaseTest {
+class ExploreVenuesUseCaseTest {
 
     private val repository: VenueRepository = mock()
     private val useCase = ExploreVenuesUseCase(repository, TestSTransformer())

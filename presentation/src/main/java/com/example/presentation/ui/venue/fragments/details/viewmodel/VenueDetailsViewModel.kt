@@ -14,7 +14,8 @@ class VenueDetailsViewModel @Inject constructor(
     var venueId = MutableLiveData<String>()
 
     fun getMovieDetails() {
-        getVenueDetailsUseCase.invoke(venueId.value.toString()).onError()
+        getVenueDetailsUseCase.invoke(venueId.value.toString())
+            .onError()
             .subscribe({
             venueInfo.value = it
         }, {
