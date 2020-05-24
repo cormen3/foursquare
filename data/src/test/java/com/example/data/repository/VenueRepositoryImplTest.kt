@@ -16,7 +16,7 @@ import org.mockito.ArgumentMatchers.anyBoolean
 import org.mockito.ArgumentMatchers.anyString
 
 @RunWith(JUnit4::class)
-class VenueDtoRepositoryImplTest {
+class VenueRepositoryImplTest {
 
     private var dataSource: VenueDataSource = mock()
     private lateinit var repository: VenueRepositoryImpl

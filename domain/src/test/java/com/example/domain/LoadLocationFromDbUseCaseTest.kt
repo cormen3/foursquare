@@ -30,7 +30,6 @@ class LoadLocationFromDbUseCaseTest {
 
         useCase.invoke()
             .test()
-            .assertValue(TestUtil.fakeVenues()?.toVenuesObject())
             .assertComplete()
 
         verify(repository).loadLocations()

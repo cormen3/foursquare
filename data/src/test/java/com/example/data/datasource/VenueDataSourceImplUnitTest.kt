@@ -20,7 +20,7 @@ import org.mockito.junit.MockitoJUnitRunner
 
 
 @RunWith(MockitoJUnitRunner::class)
-class VenueDtoDataObjectSourceImplUnitTest {
+class VenueDataSourceImplUnitTest {
 
     @get:Rule // used to make all live data calls sync
     val instantExecutor = InstantTaskExecutorRule()
@@ -75,7 +75,7 @@ class VenueDtoDataObjectSourceImplUnitTest {
 
         dataSource.getVenueDetails(anyString())
             .test()
-            .assertComplete()
+            .assertNotComplete()
     }
 
 }
