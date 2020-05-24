@@ -13,7 +13,7 @@ Cashe last location of user and with every new location, check the distance and 
 
 
 ### Challenge 2:
-- User start app whith no internet connection
+- User start app with no internet connection
 - By GPS, new location emit and request to get nearest locations got an error
 - By next run, the app doesn't send request according to 100 meters constraint
 ### Solution:
